@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../css/navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUtensils, faMapMarkerAlt, faShoppingCart, faInfoCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import logo from "../Assets/emblem/icon-nobg.png"
 
 const Navbar = () => {
   const [isNavbarCollapsed, setIsNavbarCollapsed] = React.useState(true);
@@ -19,7 +20,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark">
       <a className="navbar-brand text-white p-2" href="/">
-      Foodie
+      <img src={logo} alt="logo" className="img-fluid my-0" style={{ height: "35px" }} />
       </a>
       <button
         className="navbar-toggler"
