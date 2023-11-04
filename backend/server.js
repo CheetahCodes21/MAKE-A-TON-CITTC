@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const route = require("./routes/route");
+const route = require("./Router/route");
 const cors = require("cors");
 
 const app = express();
