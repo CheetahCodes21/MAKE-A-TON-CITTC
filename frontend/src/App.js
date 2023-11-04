@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import SignIn from './pages/Signup';
 import AdminPage from './pages/Admin';
 import Article from './pages/Article';
+import RestaurantSearch from './pages/Map';
 function App() {
   return (
     <Router>
@@ -24,7 +25,7 @@ function App() {
           <Route path="/recipes/:idMeal/:searchQuery" element={<RecipeDetails/>} />
           <Route path="/admin" element={<AdminPage/>}/>
           <Route path="/article" element={<Article/>}/>
-          {/* <Route path="/restaurant" element={<RecipeDetails/>} /> */}
+          <Route path="/restaurant" element={<RestaurantSearch />} />
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<SignIn/>}/>
         </Routes>
