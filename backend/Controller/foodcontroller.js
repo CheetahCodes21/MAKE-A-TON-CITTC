@@ -5,7 +5,7 @@ const { isvalid, isvalidBody } = require("./valid");
 const addFood = async (req, res) => {
     try {
         let data = req.body;
-        let { Name, img, desc, sales, likes, Ratings } = req.body;
+        let { Name, img,desc } = req.body;
 
         if (!isvalidBody(data)) {
             return res.status(400).send({ msg: "No data added" });
@@ -15,6 +15,9 @@ const addFood = async (req, res) => {
         }
         if (!isvalid(Name)) {
             return res.status(400).send({ msg: "Name of food is required" });
+        }
+        if (!isvalid(desc)) {
+            return res.status(400).send({ msg: "Image of food is required" });
         }
         // Add similar checks for other fields (desc, sales, likes, Ratings)
 

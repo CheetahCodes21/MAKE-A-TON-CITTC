@@ -71,3 +71,17 @@
     opacity: 1;
   }
   
+
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.1); /* Adjust the alpha (last value) to control transparency */
+    backdrop-filter: blur(8px); /* Adjust blur amount as needed */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Optional border for contrast */
+    border-radius: 10px; /* Optional border radius for rounded corners */
+    padding: 20px;
+    margin-top: 20px;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .glassmorphism:hover {
+    background: rgba(255, 255, 255, 0.078); /* Adjust hover transparency */
+  }

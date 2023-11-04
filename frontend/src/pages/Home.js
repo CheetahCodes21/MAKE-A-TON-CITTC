@@ -115,7 +115,7 @@ const Home = () => {
    <VideoSlider/>
    </div>
 
-    {/* <Footer/> */}
+    <Footer/>
   </div>
  )
 }

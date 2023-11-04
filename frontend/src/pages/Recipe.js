@@ -1,11 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import Img from '../Assets/cards/reciepefinder.jpg'
+import Navbar from '../components/navbar';
+import Footer from '../components/Footer';
+import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+
 
 function App() {
   const [recipeData, setRecipeData] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [ingredientImages, setIngredientImages] = useState({});
+  // const [showMore, setShowMore] = useState(false);
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => setModal(!modal);
 
   const fetchIngredientImages = async (ingredients) => {
     const imagePromises = ingredients.map(async (ingredient) => {
@@ -48,10 +56,16 @@ function App() {
       console.error('Error fetching recipe:', error);
     }
   };
+  // const handleViewMore = () => {
+  //   setShowMore(!showMore); 
+  // };
+
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-center">Recipe Finder</h1>
+    <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
+    <Navbar/>
+    <div className="container mt-5" >
+      <h1 className="text-center text-white">Recipe Finder</h1>
       <div className="row justify-content-center mt-3">
         <div className="col-sm-8">
           <div className="input-group">
@@ -69,14 +83,18 @@ function App() {
         </div>
       </div>
       {recipeData ? (
-        <div className="row justify-content-center mt-4">
-          <div className="col-sm-8">
+        <div className="row justify-content-center mt-4 mb-4">
+          <div className="col-sm-8 col-md-4">
             <div className="card">
-              <img src={recipeData.strMealThumb} className="card-img-top" alt={recipeData.strMeal} />
+              <img src={recipeData.strMealThumb} className="card-img-top" alt={recipeData.strMeal} style={{maxHeight:"300px"}} />
               <div className="card-body">
-                <h2 className="card-title">{recipeData.strMeal}</h2>
-                <p className="card-text">Category: {recipeData.strCategory}</p>
-                <p className="card-text">Area: {recipeData.strArea}</p>
+                <h2 className="card-title text-center">{recipeData.strMeal}</h2>
+                <p className="card-text text-center">Category: {recipeData.strCategory}</p>
+                <p className="card-text text-center">Area: {recipeData.strArea}</p>
+                <Modal isOpen={modal} toggle={toggleModal} size="lg">
+                 <ModalHeader toggle={toggleModal}>Recipe Details</ModalHeader>
+                 <ModalBody>{ toggleModal? (
+                  <>
                 <p className="card-text">Instructions: {recipeData.strInstructions}</p>
                 <a href={recipeData.strYoutube} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
                 <h3 className="mt-4">Ingredients</h3>
@@ -103,18 +121,30 @@ function App() {
                         </div>
                       );
                     }
-                    return null;
                   })}
+                  {/* return null; */}
                 </div>
-              </div>
+                </>
+                 ) : null}
+                  </ModalBody>
+                 </Modal>
+                 </div>
+                 <div className="d-flex justify-content-center mb-3">
+  <button className="btn btn-primary mt-2 w-25" onClick={toggleModal}>
+   View Info
+  </button>
+</div>
+
             </div>
           </div>
         </div>
       ) : (
-        <p className="text-center mt-4">
+        <p className="text-center vh-100 text-white mt-4">
           {searchQuery ? 'No matching recipes found.' : 'Enter a search query to find a recipe.'}
         </p>
       )}
+    </div>
+    <Footer/>
     </div>
   );
 }
