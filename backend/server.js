@@ -22,6 +22,10 @@ app.use("/api2/food", route);
 app.use("/api", require("./Router/create_user"));
 // app.use("/api", require("./routes/Create_user.js"));
 
+// POST route for adding a food item
+
+app.use('/uploads', express.static('uploads'));
+
 // DB Connection
 mongoose
   .connect("mongodb+srv://nishanthbhat18:meowmeow@cluster0.rgvqsc8.mongodb.net/CS_4B")
