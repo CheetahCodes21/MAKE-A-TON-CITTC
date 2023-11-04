@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Recipe from './pages/Recipe';
 import IngredientPage from './pages/Ingredients';
 import RecipesPage from './pages/RecipesPage';
+import Map from './pages/Map'
 import RecipeDetails from './pages/RecipeDetails';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -17,7 +18,7 @@ function App() {
           <Route path="/ingred" element={<IngredientPage/>} />
           <Route path="/recipes/:ingredient" element={<RecipesPage/>} />
           <Route path="/recipes/:idMeal/:searchQuery" element={<RecipeDetails/>} />
-          <Route path="/restaurant" element={<RecipeDetails/>} />
+          <Route path="/restaurant" element={<Map/>} />
         </Routes>
       </div>
     </Router>

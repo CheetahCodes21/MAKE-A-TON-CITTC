@@ -1,0 +1,6 @@
+/* IngredientPage.css */
+.selected {
+    border: 2px solid #ffc107; /* Yellow border (you can change it to your preferred color) */
+    background-color: #ffffcc; /* Yellow background color (you can change it to your preferred color) */
+  }
+  
