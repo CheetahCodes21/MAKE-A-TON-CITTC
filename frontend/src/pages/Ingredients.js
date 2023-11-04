@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function IngredientPage() {
   const [ingredients, setIngredients] = useState([]);
   const [selectedIngredient, setSelectedIngredient] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,11 +31,28 @@ function IngredientPage() {
     navigate(`/recipes/${ingredient}`);
   };
 
+  // Filter ingredients based on the search query
+  const filteredIngredients = ingredients.filter((ingredient) =>
+    ingredient.strIngredient.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="container mt-5">
       <h1 className="text-center">Ingredients List</h1>
+
+      {/* Add a search input field */}
+      <div className="mb-3">
+        <input
+          type="text"
+          placeholder="Search for ingredients"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="form-control"
+        />
+      </div>
+
       <div className="row mt-3">
-        {ingredients.map((ingredient) => (
+        {filteredIngredients.map((ingredient) => (
           <div key={ingredient.strIngredient} className="col-md-4 mb-4">
             <Link to={`/recipes/${ingredient.strIngredient}`} className="card">
               <img
