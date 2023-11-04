@@ -1,29 +1,92 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import '../css/navbar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUtensils, faMapMarkerAlt, faShoppingCart, faInfoCircle, faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
+  const [isNavbarCollapsed, setIsNavbarCollapsed] = React.useState(true);
+  const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
+
+  const toggleNavbar = () => {
+    setIsNavbarCollapsed(!isNavbarCollapsed);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+      <a className="navbar-brand text-white p-2" href="/">
+      Foodie
+      </a>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded={!isNavbarCollapsed}
+        aria-label="Toggle navigation"
+        onClick={toggleNavbar}
+      >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <a className="navbar-brand" href="/">Navbar</a>
 
-      <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+      <div className={`collapse navbar-collapse ${isNavbarCollapsed ? '' : 'show'}`} id="navbarNav">
+        <ul className="navbar-nav ml-auto text-center">
+          <li className="nav-item dropdown">
+            <div className="dropdown">
+              <Link
+                className="nav-link text-white ms-5 dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded={isDropdownOpen}
+                onClick={toggleDropdown}
+              >
+                <FontAwesomeIcon icon={faUtensils} /> Recipes
+              </Link>
+              <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="navbarDropdown">
+                <Link className="dropdown-item" to="/category1">
+                  <FontAwesomeIcon icon={faUtensils} /> Chef's Choice
+                </Link>
+                <Link className="dropdown-item" to="/category2">
+                  <FontAwesomeIcon icon={faUtensils} /> Home Kitchen
+                </Link>
+                <div className="dropdown-divider"></div>
+                <Link className="dropdown-item" to="/specials">
+                  <FontAwesomeIcon icon={faUtensils} /> Trending
+                </Link>
+              </div>
+            </div>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/link">Link</a>
+            <a className="nav-link text-white ms-5" href="/restaurant">
+              <FontAwesomeIcon icon={faMapMarkerAlt} /> LocalBites
+            </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Disabled</a>
+            <a className="nav-link text-white ms-5" href="/order">
+              <FontAwesomeIcon icon={faShoppingCart} /> Cart
+            </a>
           </li>
         </ul>
-        <form className="form-inline my-2 my-lg-0">
-          <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <ul className="navbar-nav ms-auto p-1 text-center ">
+          <li className="nav-item">
+            <a className="nav-link text-white ms-5" href="/about">
+              <FontAwesomeIcon icon={faInfoCircle} /> About
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link text-white ms-5 " href="/contact">
+              <FontAwesomeIcon icon={faUser} /> Login
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
   );
