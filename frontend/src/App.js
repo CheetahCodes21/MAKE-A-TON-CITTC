@@ -7,6 +7,8 @@ import RecipesPage from './pages/RecipesPage';
 import RecipeDetails from './pages/RecipeDetails';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import Login from './pages/Login';
+import SignIn from './pages/Signup';
 function App() {
   return (
     <Router>
@@ -18,6 +20,8 @@ function App() {
           <Route path="/recipes/:ingredient" element={<RecipesPage/>} />
           <Route path="/recipes/:idMeal/:searchQuery" element={<RecipeDetails/>} />
           <Route path="/restaurant" element={<RecipeDetails/>} />
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/signup" element={<SignIn/>}/>
         </Routes>
       </div>
     </Router>

@@ -98,7 +98,7 @@ const Navbar = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-white " href="/contact">
+            <a className="nav-link text-white " href="/login">
               <FontAwesomeIcon icon={faUser} /> Login
             </a>
           </li>

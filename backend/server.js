@@ -4,7 +4,7 @@ const route = require("./Router/route");
 const cors = require("cors");
 
 const app = express();
-const PORT = 3500;
+const PORT = 3000;
 
 // CORS configuration
 // app.use(
@@ -15,6 +15,7 @@ const PORT = 3500;
 // );
 app.use(cors())
 // Parse JSON request bodies
+app.use("/api", require("./Router/create_user.js"));
 app.use(express.json());
 
 // Mount your routes
