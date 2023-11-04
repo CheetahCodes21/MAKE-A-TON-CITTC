@@ -17,6 +17,7 @@ function App() {
           <Route path="/ingred" element={<IngredientPage/>} />
           <Route path="/recipes/:ingredient" element={<RecipesPage/>} />
           <Route path="/recipes/:idMeal/:searchQuery" element={<RecipeDetails/>} />
+          <Route path="/restaurant" element={<RecipeDetails/>} />
         </Routes>
       </div>
     </Router>
