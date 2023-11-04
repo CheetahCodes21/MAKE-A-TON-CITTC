@@ -20,7 +20,7 @@ function carousel() {
             <img className="d-block w-100" src={Img2} alt="Second slide" style={{}} />
           </div>
           <div className="carousel-item">
-            <img className="d-block w-100" src={Img3} alt="Third slide" style={{}}/>
+            <img className="d-block w-100" src={Img1} alt="Third slide" style={{}}/>
           </div>
         </div>
         <a className="carousel-control-prev"  href="#carouselExampleControls" role="button" data-bs-slide="prev">
