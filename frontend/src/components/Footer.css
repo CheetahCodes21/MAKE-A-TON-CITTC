@@ -13,19 +13,27 @@
     justify-content: space-between;
   }
   
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; 
+  }
+  
   .footer-section {
     background: #333;
     color: white;
     padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid white; /* Add a white border */
+    border: 1px solid white; 
     text-align: center;
+    border-radius: 10px; 
+    flex: 7; 
   }
   
   .footer-heading {
     background: #333;
     font-size: 20px;
     font-weight: bold;
+    padding: 10px; 
   }
   
   .footer-text {
@@ -65,4 +73,3 @@
     padding: 10px 0;
     font-size: 16px;
   }
-  
