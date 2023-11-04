@@ -1,0 +1,10 @@
+#carousel{
+    max-height: 400px;
+    overflow: hidden;
+    object-fit: cover;
+   }
+
+   body::-webkit-scrollbar{
+    display: none;
+   }
+   
