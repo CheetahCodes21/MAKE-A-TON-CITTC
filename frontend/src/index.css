@@ -43,4 +43,20 @@
   .modal-description {
     flex: 1; /* Make the description take the remaining space */
   }
+  .overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgba(0, 0, 0, 0.5); /* Black semi-transparent background */
+    color: white; 
+    width: 100%;
+    transition: .5s ease; /* Smooth transition effect */
+    opacity: 0; /* Initially hidden */
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .card:hover .overlay {
+    opacity: 1; /* Make overlay visible on hover */
+  }
   
