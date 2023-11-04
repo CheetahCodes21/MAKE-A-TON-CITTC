@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function IngredientPage() {
   const [ingredients, setIngredients] = useState([]);
-  const [selectedIngredient, setSelectedIngredient] = useState('');
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
@@ -27,8 +27,15 @@ function IngredientPage() {
   }, []);
 
   const handleIngredientSelect = (ingredient) => {
-    setSelectedIngredient(ingredient);
-    navigate(`/recipes/${ingredient}`);
+    const isIngredientSelected = selectedIngredients.includes(ingredient);
+
+    if (isIngredientSelected) {
+      // If the ingredient is already selected, remove it
+      setSelectedIngredients(selectedIngredients.filter((item) => item !== ingredient));
+    } else {
+      // If the ingredient is not selected, add it to the list
+      setSelectedIngredients([...selectedIngredients, ingredient]);
+    }
   };
 
   // Filter ingredients based on the search query
@@ -51,10 +58,22 @@ function IngredientPage() {
         />
       </div>
 
+      <div className="mt-4">
+        <button
+          className="btn btn-primary"
+          onClick={() => navigate(`/recipes/${selectedIngredients.join(',')}`)}
+        >
+          Find Recipes
+        </button>
+      </div>
+
       <div className="row mt-3">
         {filteredIngredients.map((ingredient) => (
           <div key={ingredient.strIngredient} className="col-md-4 mb-4">
-            <Link to={`/recipes/${ingredient.strIngredient}`} className="card">
+            <div
+              className={`card ${selectedIngredients.includes(ingredient.strIngredient) ? 'selected' : ''}`}
+              onClick={() => handleIngredientSelect(ingredient.strIngredient)}
+            >
               <img
                 src={`https://www.themealdb.com/images/ingredients/${ingredient.strIngredient}.png`}
                 className="card-img-top"
@@ -62,11 +81,8 @@ function IngredientPage() {
               />
               <div className="card-body">
                 <h5 className="card-title">{ingredient.strIngredient}</h5>
-                {ingredient.strDescription && (
-                  <p className="card-text">{ingredient.strDescription}</p>
-                )}
               </div>
-            </Link>
+            </div>
           </div>
         ))}
       </div>
