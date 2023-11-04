@@ -12,3 +12,35 @@
     display: none;
    }
    
+   .slick-slider {
+    width: 100%;
+    margin: auto;
+  }
+  
+  .slick-slide {
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .slick-dots {
+    bottom: -20px;
+    text-align: center;
+  }
+  
+ /* Add this CSS to your stylesheets or in a separate CSS file */
+
+.modal-content-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .modal-image-container img {
+    max-width: 100px; /* Set the maximum width for the image */
+    max-height: 100px; /* Set the maximum height for the image */
+    margin-right: 20px; /* Add margin between image and description */
+  }
+  
+  .modal-description {
+    flex: 1; /* Make the description take the remaining space */
+  }
+  
