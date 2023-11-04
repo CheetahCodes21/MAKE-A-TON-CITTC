@@ -5,7 +5,7 @@ import Img3 from '../Assets/carousel/hd3.webp'
 function carousel() {
   return (
     <div >
-      <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel" style={{objectFit:"contain !important"}}>
+      <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel" >
         <div className="carousel-inner" id="carousel">
           <div className="carousel-caption" >
             <form className="d-flex">
