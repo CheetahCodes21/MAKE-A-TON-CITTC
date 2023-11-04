@@ -70,3 +70,22 @@
     margin-bottom: 16px;
   }
 
+/* Footer.css */
+.container-fluid-custom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Add a min-height to ensure the footer stays at the bottom even if content is small */
+body {
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-icon {
+  /* Add your styles for footer icons here */
+}
+/* Add any other styles you need for the footer */
