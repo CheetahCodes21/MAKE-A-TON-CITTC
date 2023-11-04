@@ -15,11 +15,11 @@ const PORT = 3000;
 // );
 app.use(cors())
 // Parse JSON request bodies
-app.use("/api", require("./Router/create_user.js"));
 app.use(express.json());
 
 // Mount your routes
 app.use("/api2", route);
+app.use("/api", require("./Router/create_user"));
 // app.use("/api", require("./routes/Create_user.js"));
 
 // DB Connection

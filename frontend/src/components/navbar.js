@@ -1,18 +1,19 @@
 import React,{useState,useEffect,useRef} from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import '../css/navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUtensils, faMapMarkerAlt, faShoppingCart, faInfoCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUtensils, faMapMarkerAlt, faShoppingCart, faInfoCircle, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import logo from "../Assets/emblem/icon-nobg.png"
 
 const Navbar = () => {
   const [isNavbarCollapsed, setIsNavbarCollapsed] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const navigate = useNavigate(); // initialize useNavigate
+  const dropdownRef = useRef(null);
 
   const toggleNavbar = () => {
     setIsNavbarCollapsed(!isNavbarCollapsed);
   };
-  const dropdownRef = useRef(null); 
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -31,6 +32,12 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    navigate("/login"); // use navigate instead of window.location
+  };
+
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark">
@@ -97,11 +104,29 @@ const Navbar = () => {
               <FontAwesomeIcon icon={faInfoCircle} /> About
             </a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link text-white " href="/login">
-              <FontAwesomeIcon icon={faUser} /> Login
+          {(!localStorage.getItem("authToken")) ? 
+            <li className="nav-item">
+            <a className="nav-link text-white" href="/login">
+              <FontAwesomeIcon icon={faInfoCircle} /> Login
             </a>
           </li>
+           : <>
+               <li className="nav-item">
+            <a className="nav-link text-white" href="/admin">
+              <FontAwesomeIcon icon={faUser} /> Admin
+            </a>
+          </li>
+          
+               <li className="nav-item">
+            <a className="nav-link text-white" href="/logout" onClick={handleLogout}>
+              <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+            </a>
+          </li>
+          </>
+              
+              
+          }
+          
         </ul>
       </div>
     </nav>

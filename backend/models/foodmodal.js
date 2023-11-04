@@ -11,10 +11,18 @@ const foodSchema = new mongoose.Schema({
   img:{
     type:String,
     required:true,
-  }, // Use the imgSchema for the img field
+  },
   desc: {
     type: String,
     required: true,
+  },
+  Author:{
+    type: String,
+    required: true,
+  },
+  category:{
+   type:String,
+   required:true
   },
   sales: {
     type: String,
