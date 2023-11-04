@@ -1,91 +1,75 @@
-.show {
-    display: flex;
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
   
-  .hide {
-    display: none;
-  }
-  .close-flex {
-    display: flex;
-  }
-  
-  .details ul {
-    position: relative;
-    top: 203px;
-    font-weight: bold;
-  }
-  
-  .rules h2 {
-    font-size: 1.7rem;
-    color: lightseagreen;
-    font-weight: bold;
-  }
-  
-  .container-fluid-custom {
+  .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: black;
   }
   
-  .navigate,
-  .links,
-  .reach-us {
-    flex: 1;
-    background: black;
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; 
+  }
+  
+  .footer-section {
+    background: #333;
     color: white;
     padding: 20px;
-  }
-  .icons a {
-    text-decoration: none;
-    color: inherit;
-  }
-  .card-footer {
-    width: 100%;
-    background-color: black;
-    color: white;
+    border: 1px solid white; 
+    text-align: center;
+    border-radius: 10px; 
+    flex: 7; 
   }
   
-  .list-group-item {
-    background-color: black;
+  .footer-heading {
+    background: #333;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px; 
+  }
+  
+  .footer-text {
+    background: #333;
     color: white;
+    font-weight: bold;
+  }
+  
+  .footer-list {
+    background: #333;
+    color: white;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-list li {
+    font-weight: bold;
+    cursor: pointer;
   }
   
   .footer-icon {
     font-size: 24px;
-  }
-  
-  .icons .footer-icon {
     margin-right: 16px;
   }
   
-  .event-icon {
-    font-size: 24px;
-    margin-bottom: 8px;
+  body {
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    padding: 0;
   }
   
-  .card-header-custom {
-    border-bottom: 2px solid #fff;
+  .copyright {
+    background-color: #333;
+    color: white;
     text-align: center;
-    margin-bottom: 16px;
+    padding: 10px 0;
+    font-size: 16px;
   }
-
-/* Footer.css */
-.container-fluid-custom {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-/* Add a min-height to ensure the footer stays at the bottom even if content is small */
-body {
-  min-height: 100vh;
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-
-.footer-icon {
-  /* Add your styles for footer icons here */
-}
-/* Add any other styles you need for the footer */

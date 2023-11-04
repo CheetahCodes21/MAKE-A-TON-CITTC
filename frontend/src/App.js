@@ -5,7 +5,8 @@ import Recipe from './pages/Recipe';
 import IngredientPage from './pages/Ingredients';
 import RecipesPage from './pages/RecipesPage';
 import RecipeDetails from './pages/RecipeDetails';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 function App() {
   return (
     <Router>

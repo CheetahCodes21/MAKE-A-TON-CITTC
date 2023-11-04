@@ -1,0 +1,12 @@
+
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' width='30' height='30'><rect width='30' height='2' rx='1' fill='%23fff' transform='translate(0 8)'/><rect width='30' height='2' rx='1' fill='%23fff' transform='translate(0 15)'/><rect width='30' height='2' rx='1' fill='%23fff' transform='translate(0 22)'/></svg>");
+    transition: background-image 0.3s ease, transform 0.3s ease;
+  }
+  
+
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' width='30' height='30'><line x1='5' y1='5' x2='25' y2='25' stroke='%23fff' stroke-width='2'/><line x1='5' y1='25' x2='25' y2='5' stroke='%23fff' stroke-width='2'/></svg>");
+    /* animation: rotateIcon 0.5s ease; */
+  }
+  
