@@ -53,14 +53,14 @@ const Navbar = () => {
               </Link>
               <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="navbarDropdown">
                 <Link className="dropdown-item" to="/recipe">
-                  <FontAwesomeIcon icon={faUtensils} /> Chef's Choice
+                   Chef's Choice
                 </Link>
                 <Link className="dropdown-item" to="/ingred">
-                  <FontAwesomeIcon icon={faUtensils} /> Home Kitchen
+                   Home Kitchen
                 </Link>
                 <div className="dropdown-divider"></div>
                 <Link className="dropdown-item" to="/specials">
-                  <FontAwesomeIcon icon={faUtensils} /> Trending
+                   Trending
                 </Link>
               </div>
             </div>

@@ -1,4 +1,4 @@
-const FoodModel = require("../models/foodmodel"); // Import the FoodItem model
+const FoodModel = require("../models/foodmodal"); // Import the FoodItem model
 
 const { isvalid, isvalidBody } = require("./valid");
 
