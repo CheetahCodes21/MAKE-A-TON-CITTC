@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Img1 from '../Assets/carousel/roti1.0.jpeg'
 function carousel() {
   return (
     <div >
@@ -12,7 +12,7 @@ function carousel() {
             </form>
           </div>
           <div className="carousel-item active">
-            <img className="d-block w-100" src="https://source.unsplash.com/random/300x300/?pizza" alt="First slide" style={{filter:"brightness(50%)", maxHeight:'1500px'}} />
+            <img className="d-block w-100" src={Img1} alt="First slide" style={{ }} />
           </div>
           <div className="carousel-item">
             <img className="d-block w-100" src="https://source.unsplash.com/random/300x300/?noodles" alt="Second slide" style={{filter:"brightness(50%)", maxHeight:'1500px'}} />
