@@ -1,3 +1,4 @@
 {
-    "DevChat.DevChatPath": "C:\\Users\\nisha\\.chat\\mamba\\envs\\devchat\\Scripts\\devchat"
+    "DevChat.DevChatPath": "C:\\Users\\ANUDEEP\\.chat\\mamba\\envs\\devchat\\Scripts\\devchat",
+    "devchat.defaultModel": "gpt-4"
 }
