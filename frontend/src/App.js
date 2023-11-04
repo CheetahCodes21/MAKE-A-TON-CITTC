@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Recipe from './pages/Recipe';
 import IngredientPage from './pages/Ingredients';
 import RecipesPage from './pages/RecipesPage';
+import Map from './pages/Map'
 import RecipeDetails from './pages/RecipeDetails';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -11,6 +12,8 @@ import Login from './pages/Login';
 import SignIn from './pages/Signup';
 import AdminPage from './pages/Admin';
 import Article from './pages/Article';
+import RestaurantSearch from './pages/Map';
+import OrderPage from './pages/Order';
 function App() {
   return (
     <Router>
@@ -23,9 +26,10 @@ function App() {
           <Route path="/recipes/:idMeal/:searchQuery" element={<RecipeDetails/>} />
           <Route path="/admin" element={<AdminPage/>}/>
           <Route path="/article" element={<Article/>}/>
-          {/* <Route path="/restaurant" element={<RecipeDetails/>} /> */}
+          <Route path="/restaurant" element={<RestaurantSearch />} />
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<SignIn/>}/>
+          <Route path="/order" element={<OrderPage/>}/>
         </Routes>
       </div>
     </Router>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../css/Ingredients.css'; // Import your CSS file for selected card styles
 
 function IngredientPage() {
   const [ingredients, setIngredients] = useState([]);
