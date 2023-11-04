@@ -19,8 +19,8 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-      <a className="navbar-brand text-white p-2" href="/">
-      <img src={logo} alt="logo" className="img-fluid my-0" style={{ height: "35px" }} />
+      <a className="navbar-brand text-white " href="/">
+      <img src={logo} alt="logo" className="img-fluid my-0" style={{ height: "35px",width:"150px" }} />
       </a>
       <button
         className="navbar-toggler"
@@ -36,11 +36,11 @@ const Navbar = () => {
       </button>
 
       <div className={`collapse navbar-collapse ${isNavbarCollapsed ? '' : 'show'}`} id="navbarNav">
-        <ul className="navbar-nav ml-auto text-center">
+        <ul className="navbar-nav  text-center">
           <li className="nav-item dropdown">
             <div className="dropdown">
               <Link
-                className="nav-link text-white ms-5 dropdown-toggle"
+                className="nav-link text-white dropdown-toggle"
                 href="#"
                 id="navbarDropdown"
                 role="button"
@@ -66,24 +66,24 @@ const Navbar = () => {
             </div>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-white ms-5" href="/restaurant">
+            <a className="nav-link text-white " href="/restaurant">
               <FontAwesomeIcon icon={faMapMarkerAlt} /> LocalBites
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-white ms-5" href="/order">
+            <a className="nav-link text-white" href="/order">
               <FontAwesomeIcon icon={faShoppingCart} /> Cart
             </a>
           </li>
         </ul>
         <ul className="navbar-nav ms-auto p-1 text-center ">
           <li className="nav-item">
-            <a className="nav-link text-white ms-5" href="/about">
+            <a className="nav-link text-white" href="/about">
               <FontAwesomeIcon icon={faInfoCircle} /> About
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link text-white ms-5 " href="/contact">
+            <a className="nav-link text-white " href="/contact">
               <FontAwesomeIcon icon={faUser} /> Login
             </a>
           </li>
