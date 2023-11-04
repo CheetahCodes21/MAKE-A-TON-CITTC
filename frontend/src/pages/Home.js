@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/navbar'
 import Carousel from '../components/Carousel'
 import Footer from '../components/Footer'
-
+import Card from "../components/card"
 
 
 
