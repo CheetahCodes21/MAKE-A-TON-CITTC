@@ -1,5 +1,7 @@
 import React from 'react'
-import Img1 from '../Assets/carousel/roti1.0.jpeg'
+import Img1 from '../Assets/carousel/143.jpeg'
+import Img2 from '../Assets/carousel/56.jpeg'
+import Img3 from '../Assets/carousel/89.jpeg'
 function carousel() {
   return (
     <div >
@@ -15,10 +17,10 @@ function carousel() {
             <img className="d-block w-100" src={Img1} alt="First slide" style={{ }} />
           </div>
           <div className="carousel-item">
-            <img className="d-block w-100" src="https://source.unsplash.com/random/300x300/?noodles" alt="Second slide" style={{filter:"brightness(50%)", maxHeight:'1500px'}} />
+            <img className="d-block w-100" src={Img2} alt="Second slide" style={{}} />
           </div>
           <div className="carousel-item">
-            <img className="d-block w-100" src="https://source.unsplash.com/random/300x300/?samosa" alt="Third slide" style={{filter:"brightness(50%)", maxHeight:'1500px'}}/>
+            <img className="d-block w-100" src={Img3} alt="Third slide" style={{}}/>
           </div>
         </div>
         <a className="carousel-control-prev"  href="#carouselExampleControls" role="button" data-bs-slide="prev">

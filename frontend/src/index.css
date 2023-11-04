@@ -4,6 +4,10 @@
     object-fit: cover;
    }
 
+   .card-img {
+    height: 200px; /* Set your desired height */
+    object-fit: cover; /* This property ensures the image covers the area without stretching */
+  }
    body::-webkit-scrollbar{
     display: none;
    }
