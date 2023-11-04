@@ -4,9 +4,9 @@ const router = express.Router();
 const FoodController = require("../Controller/foodcontroller"); // Import the FoodController
 
 // Food API
-router.post("/food/add", FoodController.addFood);
-router.get("/food/dis", FoodController.readFood);
-router.put("/food/update", FoodController.updateFood);
-router.post("/food/del", FoodController.deleteFood);
+router.post("/add", FoodController.addFood);
+router.get("/dis", FoodController.readFood);
+router.put("/update", FoodController.updateFood);
+router.post("/del", FoodController.deleteFood);
 
 module.exports = router;
