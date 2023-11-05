@@ -67,7 +67,7 @@ const Home = () => {
     <Carousel/>
     </div>
     <div style={{ backgroundImage:`url(${WoodBg})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
-      <h1 className='text-white text-center'>Top Reciepes of the Week</h1>
+      <h1 className='text-white text-center' style={{ backgroundImage:`url(${WoodBg})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>Top Reciepes of the Week</h1>
       <Cards/>
     </div>
     {/* <div className='bg-black'>
