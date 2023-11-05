@@ -7,7 +7,6 @@ const foodSchema = new mongoose.Schema({
   Image: {
     type: String,
     required: true,
-    unique: true,
 },
 Name: {
     type: String,
@@ -17,7 +16,7 @@ Name: {
 Author: {
     type: String,
     required: true,
-    unique: true,
+   
 },
 Category: {
     type: String,
