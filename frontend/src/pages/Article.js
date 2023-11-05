@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
+import Navbar from '../components/navbar';
+import Footer from '../components/Footer';
 
 const AddFood = () => {
   const [formData, setFormData] = useState({
@@ -30,6 +32,7 @@ const AddFood = () => {
 
     try {
       const response = await Axios.post('http://localhost:3000/api2/food/add', dataToSubmit);
+      alert('Food added successfully!')
 
       console.log(response.data); // Log the response from the server
 
@@ -42,8 +45,10 @@ const AddFood = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Add Food</h1>
+    <div>
+      <Navbar/>
+    <div className="container vh-100 d-flex justify-content-center align-items-center ">
+      <h1 className='text-center'>Add Food</h1>
       <form onSubmit={handleSubmit}>
         <div className="row mb-3">
           <label htmlFor="Name" className="col-sm-2 col-form-label">Dish name</label>
@@ -119,6 +124,8 @@ const AddFood = () => {
           </div>
         </div>
       </form>
+    </div>
+    <Footer/>
     </div>
   );
 };
