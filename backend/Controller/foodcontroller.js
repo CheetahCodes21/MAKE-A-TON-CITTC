@@ -5,33 +5,28 @@ const { isvalid, isvalidBody } = require("./valid");
 const addFood = async (req, res) => {
     try {
         let data = req.body;
-        let { Image, Name, Author, Genre, Public } = req.body;
+        let { Name, img,desc } = req.body;
+
         if (!isvalidBody(data)) {
-            return res.status(400).send({ msg: "No data added" })
+            return res.status(400).send({ msg: "No data added" });
         }
-        if (!isvalid(Image)) {
-            return res.status(400).send({ msg: "Image link is required" })
+        if (!isvalid(img)) {
+            return res.status(400).send({ msg: "Image link is required" });
         }
         if (!isvalid(Name)) {
-            return res.status(400).send({ msg: "name is required" })
+            return res.status(400).send({ msg: "Name of food is required" });
         }
-        if (!isvalid(Author)) {
-            return res.status(400).send({ msg: "Author" })
+        if (!isvalid(desc)) {
+            return res.status(400).send({ msg: "Image of food is required" });
         }
-        if (!isvalid(Genre)) {
-            return res.status(400).send({ msg: "category is required" })
-        }
-        if (!isvalid(Public)) {
-            return res.status(400).send({ msg: "Publication date is required" })
-        }
-        let addData = await BookModel.create(data)
-        return res.status(201)
-            .send({
-                status: true,
-                msg: "Food added Sucessfully",
-                data: addData,
-            });
+        // Add similar checks for other fields (desc, sales, likes, Ratings)
 
+        let addData = await FoodModel.create(data); // Use FoodModel to create a new food item
+        return res.status(201).send({
+            status: true,
+            msg: "Food Item Created Successfully",
+            data: addData,
+        });
     } catch (error) {
         return res.status(500).send(error);
     }
