@@ -18,7 +18,7 @@ app.use(cors())
 app.use(express.json());
 
 // Mount your routes
-app.use("/api2/food", route);
+app.use("/api2", route);
 app.use("/api", require("./Router/create_user"));
 // app.use("/api", require("./routes/Create_user.js"));
 

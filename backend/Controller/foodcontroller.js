@@ -2,44 +2,40 @@ const FoodModel = require("../models/foodmodal"); // Import the FoodItem model
 
 const { isvalid, isvalidBody } = require("./valid");
 
-// Inside your foodController.js
-
 const addFood = async (req, res) => {
     try {
-      let { Name, desc } = req.body;
-  
-      // Check if image was uploaded
-      if (!req.file) {
-        return res.status(400).send({ msg: "Image file is required" });
-      }
-  
-      // req.file is the 'img' file
-      let imgPath = req.file.path; // Path where the image is saved
-  
-      if (!isvalid(Name)) {
-        return res.status(400).send({ msg: "Name of food is required" });
-      }
-      if (!isvalid(desc)) {
-        return res.status(400).send({ msg: "Description of food is required" });
-      }
-  
-      // Create a new food item with the image path
-      let addData = await FoodModel.create({
-        Name,
-        img: imgPath, 
-        desc,
-      });
-  
-      return res.status(201).send({
-        status: true,
-        msg: "Food Item Created Successfully",
-        data: addData,
-      });
+        let data = req.body;
+        let { Image, Name, Author, Genre, Public } = req.body;
+        if (!isvalidBody(data)) {
+            return res.status(400).send({ msg: "No data added" })
+        }
+        if (!isvalid(Image)) {
+            return res.status(400).send({ msg: "Image link is required" })
+        }
+        if (!isvalid(Name)) {
+            return res.status(400).send({ msg: "name is required" })
+        }
+        if (!isvalid(Author)) {
+            return res.status(400).send({ msg: "Author" })
+        }
+        if (!isvalid(Genre)) {
+            return res.status(400).send({ msg: "category is required" })
+        }
+        if (!isvalid(Public)) {
+            return res.status(400).send({ msg: "Publication date is required" })
+        }
+        let addData = await BookModel.create(data)
+        return res.status(201)
+            .send({
+                status: true,
+                msg: "Food added Sucessfully",
+                data: addData,
+            });
+
     } catch (error) {
-      return res.status(500).send(error);
+        return res.status(500).send(error);
     }
-  };
-  
+};
 
 const readFood = async (req, res) => {
     try {

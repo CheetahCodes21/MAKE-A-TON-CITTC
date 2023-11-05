@@ -4,35 +4,42 @@ const mongoose = require("mongoose");
 
 
 const foodSchema = new mongoose.Schema({
-  Name: {
+  Image: {
     type: String,
     required: true,
-  },
- 
-  desc: {
+    unique: true,
+},
+Name: {
     type: String,
     required: true,
-  },
-  Author:{
+    unique: true,
+},
+Author: {
     type: String,
     required: true,
-  },
-  category:{
-   type:String,
-   required:true
-  },
-  sales: {
+    unique: true,
+},
+Category: {
     type: String,
     required: true,
-  },
-  likes: {
+},
+Public: {
     type: String,
     required: true,
-  },
-  Ratings: {
-    type: String,
-    required: true,
-  },
+
+},
+  // sales: {
+  //   type: String,
+  //   required: true,
+  // },
+  // likes: {
+  //   type: String,
+  //   required: true,
+  // },
+  // Ratings: {
+  //   type: String,
+  //   required: true,
+  // },
 }, { timestamps: true });
 
 module.exports = mongoose.model("FoodItem", foodSchema);
