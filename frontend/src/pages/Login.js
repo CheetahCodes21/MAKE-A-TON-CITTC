@@ -35,9 +35,9 @@ const Login = () => {
   return (
     <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
       <div className="container vh-100">
-        <div className="row justify-content-center">
+        <div className="row justify-content-start">
           <div className="col-md-6 mt-5">
-            <div className="card glassmorphism">
+            <div className="card glassmorphism mt-4">
               <div className="card-header bg-primary text-white">
                 <h3 className="text-center">Login</h3>
               </div>
