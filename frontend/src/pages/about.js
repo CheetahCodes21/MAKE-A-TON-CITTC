@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import nobg from "../Assets/emblem/fodieab.png";
-import nobg1 from "../Assets/emblem/fodieab-nobg.png";
+// import nobg1 from "../Assets/emblem/fodieab-nobg.png";
 import Navbar from "../components/navbar";
 import Footer from "../components/Footer";
 
-import { Parallax } from "react-parallax";
+// import { Parallax } from "react-parallax";
 
 function About() {
   const [textOpacity, setTextOpacity] = useState(0);
