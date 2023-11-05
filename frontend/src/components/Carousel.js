@@ -1,5 +1,5 @@
 import React from 'react'
-import Img1 from '../Assets/carousel/hd1.jpeg'
+import Img1 from '../Assets/carousel/hd4.webp'
 import Img2 from '../Assets/carousel/hd2.jpeg'
 import Img3 from '../Assets/carousel/hd3.webp'
 function carousel() {

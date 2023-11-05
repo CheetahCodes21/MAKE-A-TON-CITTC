@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import { Link ,useNavigate} from "react-router-dom";
+import Img from '../Assets/cards/loginbg.jpg'
 // import "../styles/Login.css";
 
 const Login = () => {
@@ -32,12 +33,12 @@ const Login = () => {
 
 
   return (
-    <div className="login-background">
-      <div className="container vh-100">
-        <div className="row justify-content-center">
-          <div className="col-md-6 mt-5">
-            <div className="card glassmorphism">
-              <div className="card-header bg-primary text-white">
+    <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
+      <div className="container vh-100 ">
+        <div className="row justify-content-center ">
+          <div className="col-md-6 p-5 mt-5  ">
+            <div className=" glassmorphism ">
+              <div className="card-header rounded p-1 bg-primary   text-white">
                 <h3 className="text-center">Login</h3>
               </div>
               <div className="card-body">

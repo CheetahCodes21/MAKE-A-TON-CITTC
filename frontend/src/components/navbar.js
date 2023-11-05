@@ -2,7 +2,7 @@ import React,{useState,useEffect,useRef} from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import '../css/navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUtensils, faMapMarkerAlt, faShoppingCart, faInfoCircle, faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUtensils, faMapMarkerAlt, faShoppingCart, faInfoCircle, faUser, faSignOutAlt, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import logo from "../Assets/emblem/icon-nobg.png"
 
 const Navbar = () => {
@@ -107,7 +107,7 @@ const Navbar = () => {
           {(!localStorage.getItem("authToken")) ? 
             <li className="nav-item">
             <a className="nav-link text-white" href="/login">
-              <FontAwesomeIcon icon={faInfoCircle} /> Login
+              <FontAwesomeIcon icon={faSignInAlt} /> Login
             </a>
           </li>
            : <>
