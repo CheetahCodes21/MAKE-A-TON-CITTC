@@ -4,7 +4,7 @@ const route = require("./Router/route");
 const cors = require("cors");
 
 const app = express();
-const PORT = 3000;
+const PORT = 3500;
 
 // CORS configuration
 // app.use(
@@ -18,13 +18,8 @@ app.use(cors())
 app.use(express.json());
 
 // Mount your routes
-app.use("/api2/food", route);
-app.use("/api", require("./Router/create_user"));
-// app.use("/api", require("./routes/Create_user.js"));
-
-// POST route for adding a food item
-
-app.use('/uploads', express.static('uploads'));
+app.use("/api2", route);
+app.use("/api", require("./Router/Create_user.js"));
 
 // DB Connection
 mongoose
