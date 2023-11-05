@@ -191,6 +191,7 @@ const RestaurantSearch = () => {
   };
 
   return (
+    <>
     <div className="container mt-5">
       <h1 className="text-center">Restaurant Search</h1>
       <div className="form-group">
@@ -226,6 +227,7 @@ const RestaurantSearch = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

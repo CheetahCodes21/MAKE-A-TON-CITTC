@@ -85,3 +85,32 @@
   .glassmorphism:hover {
     background: rgba(255, 255, 255, 0.078); /* Adjust hover transparency */
   }
+
+  /* Ingredients.css */
+
+/* Ensure that the images are responsive and cards are evenly spaced */
+.card-img-top {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Style for the selected ingredient card */
+  .selected {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, .5);
+  }
+  
+  /* Ensure that your list items are spaced and images are not too large */
+  .list-group-item img {
+    margin-right: 15px;
+  }
+  
+  /* Footer styling to ensure it stays at the bottom */
+  .footer {
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Add additional styles as needed */
+  
