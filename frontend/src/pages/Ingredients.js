@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import '../css/Ingredients.css'; // Ensure your CSS styles are set properly for the image size
-import Img from '../Assets/cards/bg.jpg'
+// import Img from '../Assets/cards/bg.jpg'
 import Navbar from '../components/navbar';
 import Footer from '../components/Footer';
 
@@ -51,7 +51,7 @@ function IngredientPage() {
   };
 
   return (
-    <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
+    <div style={{ backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
       <Navbar />
       <div className='vh-100'>
       <div className="container mt-5">
