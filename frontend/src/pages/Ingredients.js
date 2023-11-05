@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import '../css/Ingredients.css'; // Ensure your CSS styles are set properly for the image size
+import Img from '../Assets/cards/bg.jpg'
 import Navbar from '../components/navbar';
 import Footer from '../components/Footer';
 
@@ -50,11 +51,11 @@ function IngredientPage() {
   };
 
   return (
-    <>
+    <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
       <Navbar />
       <div className='vh-100'>
       <div className="container mt-5">
-        <h1 className="text-center">Ingredients List</h1>
+        <h1 className="text-center text-white">Ingredients List</h1>
         <div className="mb-3">
           <input
             type="text"
@@ -94,7 +95,7 @@ function IngredientPage() {
       </div>
       <Footer />
       </div>
-    </>
+    </div>
   );
 }
 
