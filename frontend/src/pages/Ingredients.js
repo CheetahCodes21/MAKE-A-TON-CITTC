@@ -53,7 +53,7 @@ function IngredientPage() {
   return (
     <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
       <Navbar />
-      <div className='vh-100'>
+      <div className=''>
       <div className="container mt-5">
         <h1 className="text-center text-white">Ingredients List</h1>
         <div className="mb-3">
