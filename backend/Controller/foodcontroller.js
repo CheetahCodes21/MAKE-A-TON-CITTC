@@ -4,33 +4,55 @@ const { isvalid, isvalidBody } = require("./valid");
 
 const addFood = async (req, res) => {
     try {
-        let data = req.body;
-        let { Name, img,desc } = req.body;
+        const { Name, Image, Author, Category, Public } = req.body;
 
-        if (!isvalidBody(data)) {
-            return res.status(400).send({ msg: "No data added" });
+        if (!Name || !Image || !Author || !Category || !Public) {
+            return res.status(400).json({ msg: "All fields are required" });
         }
-        if (!isvalid(img)) {
-            return res.status(400).send({ msg: "Image link is required" });
-        }
-        if (!isvalid(Name)) {
-            return res.status(400).send({ msg: "Name of food is required" });
-        }
-        if (!isvalid(desc)) {
-            return res.status(400).send({ msg: "Image of food is required" });
-        }
-        // Add similar checks for other fields (desc, sales, likes, Ratings)
 
-        let addData = await FoodModel.create(data); // Use FoodModel to create a new food item
-        return res.status(201).send({
-            status: true,
-            msg: "Food Item Created Successfully",
-            data: addData,
-        });
+        // Find an existing document with the same "Image" value
+        let existingFood = await FoodModel.findOne({ Image });
+
+        if (existingFood) {
+            // Update the existing document
+            existingFood.Name = Name;
+            existingFood.Author = Author;
+            existingFood.Category = Category;
+            existingFood.Public = Public;
+
+            const updatedFood = await existingFood.save();
+
+            return res.status(200).json({
+                status: true,
+                msg: "Food Item Updated Successfully",
+                data: updatedFood,
+            });
+        } else {
+            // Create a new document
+            const foodData = {
+                Name,
+                Image,
+                Author,
+                Category,
+                Public,
+            };
+
+            const newFood = new FoodModel(foodData);
+
+            const savedFood = await newFood.save();
+
+            return res.status(201).json({
+                status: true,
+                msg: "Food Item Created Successfully",
+                data: savedFood,
+            });
+        }
     } catch (error) {
-        return res.status(500).send(error);
+        return res.status(500).json({ status: false, msg: "Error adding/updating food", error: error.message });
     }
 };
+
+
 
 const readFood = async (req, res) => {
     try {
