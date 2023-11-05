@@ -9,51 +9,51 @@ import VideoSlider from '../components/VideoSlider'
 const restaurants = [
   {
     id: 0,
-    name: 'Restaurant 1',
-    description: 'Description for Restaurant 1',
-    image: WoodBg // Replace 'restaurant1.jpg' with the actual image file name or URL
+    name: 'Central',
+    image:'https://www.theworlds50best.com/filestore/jpg/W50BR23-1-50-List-Central-interior.jpg',
+    Link:'https://www.theworlds50best.com/the-list/1-10/central.html'
   },
   {
     id: 1,
-    name: 'Restaurant 2',
-    description: 'Description for Restaurant 2',
-    image: WoodBg // Replace 'restaurant2.jpg' with the actual image file name or URL
+    name: 'Disfrutar',
+    image: 'https://www.theworlds50best.com/filestore/jpg/W50BR23-1-50-List-Disfrutar-Interior.jpg',
+    Link:'https://www.theworlds50best.com/the-list/1-10/disfrutar.html'
   },
   {
     id: 2,
-    name: 'Restaurant 3',
-    description: 'Description for Restaurant 3',
-    image: WoodBg// Replace 'restaurant3.jpg' with the actual image file name or URL
+    name: 'Diverxo',
+    image:'https://www.theworlds50best.com/filestore/jpg/W50BR23-1-50-List-Diverxo-interior.jpg',
+    Link:'https://www.theworlds50best.com/the-list/1-10/diverxo.html'
   },
   {
     id: 3,
-    name: 'Restaurant 4',
-    description: 'Description for Restaurant 4',
-    image: WoodBg// Replace 'restaurant3.jpg' with the actual image file name or URL
+    name: 'Asador Etxebarri',
+    image:'https://www.theworlds50best.com/filestore/jpg/W50BR23-1-50-List-Asador-Etxebarri-interior.jpg',
+    Link:'https://www.theworlds50best.com/the-list/1-10/asador-etxebarri.html'
   },
   {
     id: 4,
-    name: 'Restaurant 5',
-    description: 'Description for Restaurant 5',
-    image: WoodBg// Replace 'restaurant3.jpg' with the actual image file name or URL
+    name: 'Alchemist',
+    image: 'https://www.theworlds50best.com/filestore/jpg/W50BR23-1-50-List-Alchemist-interior.jpg',
+    Link:'https://www.theworlds50best.com/the-list/1-10/alchemist.html'
   },
   {
     id: 5,
-    name: 'Restaurant 6',
-    description: 'Description for Restaurant 6',
-    image: WoodBg// Replace 'restaurant3.jpg' with the actual image file name or URL
+    name: 'Maido',
+    image: 'https://www.theworlds50best.com/filestore/jpg/W50BR23-1-50-List-Maido-Interior.jpg',
+    Link:'https://www.theworlds50best.com/the-list/1-10/maido.html'
   },
   {
     id: 6,
-    name: 'Restaurant 7',
-    description: 'Description for Restaurant 7',
-    image: WoodBg// Replace 'restaurant3.jpg' with the actual image file name or URL
+    name: 'Lido 84',
+    image: 'https://www.theworlds50best.com/filestore/jpg/W50BR23-1-50-List-Lido84-interior.jpg',
+    Link:'https://www.theworlds50best.com/the-list/1-10/lido-84.html'
   },
   {
     id: 7,
-    name: 'Restaurant 8',
-    description: 'Description for Restaurant 8',
-    image: WoodBg// Replace 'restaurant3.jpg' with the actual image file name or URL
+    name: 'Atomix',
+    image: 'https://www.theworlds50best.com/filestore/jpg/W50BR23-1-50-List-Atomix-interior.jpg',
+    Link:'https://www.theworlds50best.com/the-list/1-10/atomix.html'
   },
   // Add more restaurant objects as needed
 ];
@@ -100,8 +100,8 @@ const Home = () => {
             <div className="restaurant-info overlay">
               <h2 className="restaurant-name">{restaurant.name}</h2>
               <p>{restaurant.description}</p>
-              <a href={`/restaurants/${restaurant.id}`}>
-                View Menu
+              <a href={restaurant.Link} className='text-decoration-none text-white'>
+                Visit
               </a>
             </div>
           </div>
