@@ -14,6 +14,8 @@ import AdminPage from './pages/Admin';
 import Article from './pages/Article';
 import RestaurantSearch from './pages/Map';
 import OrderPage from './pages/Order';
+import About from "./pages/about";
+
 function App() {
   return (
     <Router>
@@ -30,6 +32,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<SignIn/>}/>
           <Route path="/order" element={<OrderPage/>}/>
+          <Route path='/about' element = {<About />} />
         </Routes>
       </div>
     </Router>
