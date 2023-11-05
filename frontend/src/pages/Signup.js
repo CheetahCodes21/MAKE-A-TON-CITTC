@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {Link,useNavigate} from 'react-router-dom'
+import Img from '../Assets/cards/signupbg.jpg'
 
 const SignIn = () => {
 
@@ -37,12 +38,13 @@ const SignIn = () => {
   }
 
   return (
+    <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
     <div className="container vh-100">
       <div className="row justify-content-center">
         <div className="col-md-6 mt-5">
-          <div className="card glassmorphism">
+          <div className=" glassmorphism1">
             <div className="card-header bg-primary text-white">
-              <h3 className="text-center">Sign In</h3>
+              <h3 className="text-center p-1">Sign In</h3>
             </div>
             <div className="card-body">
               <form onSubmit={handleSubmit}>
@@ -76,25 +78,12 @@ const SignIn = () => {
                 <Link to='/login' className='m-3 btn btn-danger'>Already a User</Link>
               </form>
               <hr className="text-white"/>
-              <div className="text-center">
-                <p className="text-white">Or sign in with:</p>
-                <button
-                  className="btn btn-danger m-3"
-                  onClick={handleGoogleSignIn}
-                >
-                  <i className="fab fa-google mr-2"></i> Sign in with Google
-                </button>
-                <button
-                  className="btn btn-primary"
-                  onClick={handleFacebookSignIn}
-                >
-                  <i className="fab fa-facebook-f mr-2"></i> Sign in with Facebook
-                </button>
-              </div>
+            
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
