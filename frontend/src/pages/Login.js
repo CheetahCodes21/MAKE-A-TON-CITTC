@@ -100,7 +100,7 @@ const Login = () => {
               </div>
               <div className="text-center mt-3">
                 <p className="text-white">
-                  Don't have an account? <Link to="/signup" className="text-decoration-none  ms-3 fs-4" style={{color:'brown'}}>Sign Up</Link>
+                  Don't have an account? <Link to="/signup" className="text-decoration-none  ms-3 " style={{color:'brown'}}>Sign Up</Link>
                 </p>
               </div>
             </div>
