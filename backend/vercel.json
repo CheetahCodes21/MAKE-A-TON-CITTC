@@ -2,27 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "server.js", 
+        "src": "server.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
-        "src": "/api2/food/(.*)", 
-        "dest": "/api2/food/$1",
-        "methods": ["GET", "POST", "PUT", "DELETE"]
-      },
-      {
-        "src": "/api/(.*)", 
-        "dest": "/api/$1",
-        "methods": ["GET", "POST", "PUT", "DELETE"]
-      },
-      {
-        "handle": "filesystem"
-      },
-      {
         "src": "/(.*)",
-        "dest": "/"
+        "dest": "/server.js"
       }
     ]
   }
