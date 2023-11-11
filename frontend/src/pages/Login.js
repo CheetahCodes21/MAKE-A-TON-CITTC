@@ -24,7 +24,7 @@ const Login = () => {
      alert("Enter valid credentials")
     }
     if(json.success){
-      alert("You have logged in!")
+      // alert("You have logged in!")
       navigate('/home')
       localStorage.setItem("authToken",json.authToken)
       console.log(localStorage.getItem("authToken"));

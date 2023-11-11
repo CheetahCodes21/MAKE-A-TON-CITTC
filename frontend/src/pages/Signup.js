@@ -25,7 +25,7 @@ const SignIn = () => {
     if(!json.success){
      alert("Enter valid credentials")
     }else{
-      alert("Account created")
+      // alert("Account created")
       navigate('/login')
     }
   }
