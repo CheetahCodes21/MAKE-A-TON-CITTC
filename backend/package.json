@@ -12,6 +12,6 @@
   }, "scripts": {
     "start": "node server.js" 
   }, "engines": {
-    "node": "14.x"
+    "node": "18.x"
   }
 }
