@@ -26,7 +26,7 @@ const SignIn = () => {
      alert("Enter valid credentials")
     }else{
       alert("Account created")
-      navigate('/home')
+      navigate('/login')
     }
   }
   const onChange=(event)=>{
