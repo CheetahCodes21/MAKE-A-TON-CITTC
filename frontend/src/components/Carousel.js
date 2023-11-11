@@ -1,5 +1,5 @@
 import React from 'react'
-import Img1 from '../Assets/carousel/hd4.webp'
+import Img1 from '../Assets/carousel/samosa.jpg'
 import Img2 from '../Assets/carousel/hd2.jpeg'
 import Img3 from '../Assets/carousel/hd3.webp'
 function carousel() {
@@ -14,13 +14,13 @@ function carousel() {
             </form>
           </div>
           <div className="carousel-item active">
-            <img className="d-block w-100" src={Img1} alt="First slide" style={{ }} />
+            <img className="d-block w-100" src={Img1} alt="First slide"  style={{objectFit:'cover',maxHeight:'400px'}} />
           </div>
           <div className="carousel-item">
-            <img className="d-block w-100" src={Img2} alt="Second slide" style={{}} />
+            <img className="d-block w-100" src={Img2} alt="Second slide" style={{objectFit:'cover', maxHeight:'400px'}} />
           </div>
           <div className="carousel-item">
-            <img className="d-block w-100" src={Img3} alt="Third slide" style={{}}/>
+            <img className="d-block w-100" src={Img3} alt="Third slide" style={{objectFit:'cover', maxHeight:'400px'}}/>
           </div>
         </div>
         <a className="carousel-control-prev"  href="#carouselExampleControls" role="button" data-bs-slide="prev">

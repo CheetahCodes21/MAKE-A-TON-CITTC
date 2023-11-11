@@ -1,0 +1,49 @@
+.white-text {
+    color: #fff;
+  }
+  
+  /* Optionally, style the placeholder text specifically */
+  .white-text::placeholder {
+    color: #fff;
+  }
+  
+
+  /* YourComponent.css */
+
+/* Rest of your styles */
+
+/* .form-control:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+
+}
+
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover, 
+.form-control:-webkit-autofill:focus, 
+.form-control:-webkit-autofill:active {
+  -webkit-transition: background-color 5000s ease-in-out 0s !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+  caret-color: white !important;
+  text-fill-color: white !important;
+  color: white !important;
+} */
+
+/* Login.css */
+/* Style the autofill input */
+.input-container input:-webkit-autofill {
+  -webkit-text-fill-color: white; /* Set text color to transparent */
+  background-color: transparent !important; /* Set background color to transparent */
+  transition: background-color 5000s ease-in-out 0s; /* Add a long transition to prevent abrupt changes */
+}
+
+/* Style the input text color */
+.input-container input {
+  color: #fff; /* Set your desired text color */
+}
+
+/* Style the input border */
+.input-container input {
+  border: none; /* Remove border */
+  border-bottom: 2px solid #fff; /* Add bottom border */
+  outline: none; /* Remove outline */
+}

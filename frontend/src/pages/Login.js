@@ -1,9 +1,11 @@
 import React,{useState} from "react";
 import { Link ,useNavigate} from "react-router-dom";
-import Img from '../Assets/cards/loginbg.jpg'
-// import "../styles/Login.css";
+import Img from '../Assets/background/Food.jpg'
+import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri'; 
+import "../css/Login.css";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [credentials,setcredentials]=useState({email:"",password:""})
   let navigate=useNavigate()
   const handleSubmit=async(e)=>{
@@ -22,7 +24,7 @@ const Login = () => {
      alert("Enter valid credentials")
     }
     if(json.success){
-      navigate('/')
+      navigate('/home')
       localStorage.setItem("authToken",json.authToken)
       console.log(localStorage.getItem("authToken"));
     }
@@ -37,36 +39,67 @@ const Login = () => {
       <div className="container vh-100 ">
         <div className="row justify-content-center ">
           <div className="col-md-6 p-5 mt-5  ">
-            <div className=" glassmorphism ">
-              <div className="card-header rounded p-1 bg-primary   text-white">
-                <h3 className="text-center">Login</h3>
+            <div className="card bg-transparent ">
+              <div className="card-header rounded p-1  text-white">
+                <h1 className="text-center">Login...</h1>
               </div>
               <div className="card-body">
                 <form onSubmit={handleSubmit}>
-                  <div className="form-group">
-                    <label htmlFor="email" className="text-white">Email:</label>
-                    <input type="email" placeholder="Enter email" className="form-control" id="email" name="email" value={credentials.email} onChange={onChange}/>
+                  <div className="form-group input-container mb-5">
+                    <label htmlFor="email" className="text-white fs-3">Email:</label>
+                    <input type="email" placeholder="Enter email" className="form-control  white-text text-white" id="email" name="email" value={credentials.email} onChange={onChange}
+                      style={{
+                        backgroundColor: 'transparent',
+                        border: 'none',
+                        borderBottom: '2px solid #fff' ,
+                        
+                      }}/>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="password" className="text-white">Password:</label>
-                    <input
-                      type="password"
-                      placeholder="Enter password"
-                      className="form-control"
-                      id="password"
-                      name="password"
-                      value={credentials.password}
-                      onChange={onChange}
-                    />
-                  </div>
-                  <button type="submit" className="mt-2 btn btn-primary btn-block">
+      <label htmlFor="password" className="text-white fs-3">
+        Password:
+      </label>
+      <div style={{ position: 'relative' }}>
+        <input
+          type={showPassword ? 'text' : 'password'}
+          placeholder="Enter password"
+          className="form-control text-white white-text"
+          id="password"
+          name="password"
+          value={credentials.password}
+          onChange={onChange}
+          style={{
+            backgroundColor: 'transparent',
+            border: 'none',
+            borderBottom: '2px solid #fff',
+          }}
+        />
+        <button
+          type="button"
+          onClick={() => setShowPassword(!showPassword)}
+          style={{
+            position: 'absolute',
+            right: '10px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            background: 'none',
+            border: 'none',
+            color: '#fff',
+            cursor: 'pointer',
+          }}
+        >
+         {showPassword ? <RiEyeOffFill /> : <RiEyeFill />}
+        </button>
+      </div>
+    </div>
+                  <button type="submit" className="mt-4 ms-2 btn btn-danger btn-block">
                     Log in
                   </button>
                 </form>
               </div>
               <div className="text-center mt-3">
                 <p className="text-white">
-                  Don't have an account? <Link to="/signup">Sign Up</Link>
+                  Don't have an account? <Link to="/signup" className="text-decoration-none  ms-3 fs-4" style={{color:'brown'}}>Sign Up</Link>
                 </p>
               </div>
             </div>

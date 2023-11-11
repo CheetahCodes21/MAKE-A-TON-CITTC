@@ -1,9 +1,13 @@
+// Import statements...
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 import Navbar from '../components/navbar';
 import Footer from '../components/Footer';
+import Img from '../Assets/cards/brown.jpg'
 
 const AddFood = () => {
+  let navigate=useNavigate();
   const [formData, setFormData] = useState({
     Name: '',
     Image: '', // Store the image URL as text
@@ -33,6 +37,7 @@ const AddFood = () => {
     try {
       const response = await Axios.post('http://localhost:3000/api2/food/add', dataToSubmit);
       alert('Food added successfully!')
+      navigate('/admin')
 
       console.log(response.data); // Log the response from the server
 
@@ -45,87 +50,77 @@ const AddFood = () => {
   };
 
   return (
-    <div>
-      <Navbar/>
-    <div className="container vh-100 d-flex justify-content-center align-items-center ">
-      <h1 className='text-center'>Add Food</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="row mb-3">
-          <label htmlFor="Name" className="col-sm-2 col-form-label">Dish name</label>
-          <div className="col-sm-10">
-            <input
-              type="text"
-              name="Name"
-              id="Name"
-              value={formData.Name}
-              onChange={handleInputChange}
-              className="form-control"
-              required
-            />
-          </div>
+    <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
+      <Navbar />
+      <div className="container vh-100 d-flex justify-content-center align-items-center">
+        <div className="card text-info p-4" style={{ width: '400px',backgroundColor:'transparent' }}>
+          <h1 className="text-center mb-4">Add Food</h1>
+          <form onSubmit={handleSubmit} >
+            <div className="mb-3">
+              <label htmlFor="Name" className="form-label">Dish Name</label>
+              <input
+                type="text"
+                name="Name"
+                id="Name"
+                value={formData.Name}
+                onChange={handleInputChange}
+                className="form-control"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="Author" className="form-label">Ingredients</label>
+              <textarea
+                name="Author"
+                id="Author"
+                value={formData.Author}
+                onChange={handleInputChange}
+                className="form-control"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="Category" className="form-label">Category</label>
+              <input
+                type="text"
+                name="Category"
+                id="Category"
+                value={formData.Category}
+                onChange={handleInputChange}
+                className="form-control"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="Public" className="form-label">Recipe</label>
+              <textarea
+                name="Public"
+                id="Public"
+                value={formData.Public}
+                onChange={handleInputChange}
+                className="form-control"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="Image" className="form-label">Image URL</label>
+              <input
+                type="text"
+                name="Image"
+                id="Image"
+                value={formData.Image}
+                onChange={handleInputChange}
+                className="form-control"
+                required
+              />
+            </div>
+            <div className="d-grid">
+              <button type="submit" className="btn btn-primary">Add Food</button>
+            </div>
+          </form>
         </div>
-        <div className="row mb-3">
-          <label htmlFor="Author" className="col-sm-2 col-form-label">Ingredients</label>
-          <div className="col-sm-10">
-            <textarea
-              name="Author"
-              id="Author"
-              value={formData.Author}
-              onChange={handleInputChange}
-              className="form-control"
-              required
-            />
-          </div>
-        </div>
-        <div className="row mb-3">
-          <label htmlFor="Category" className="col-sm-2 col-form-label">Category</label>
-          <div className="col-sm-10">
-            <input
-              type="text"
-              name="Category"
-              id="Category"
-              value={formData.Category}
-              onChange={handleInputChange}
-              className="form-control"
-              required
-            />
-          </div>
-        </div>
-        <div className="row mb-3">
-          <label htmlFor="Public" className="col-sm-2 col-form-label">Recipe</label>
-          <div className="col-sm-10">
-            <textarea
-              name="Public"
-              id="Public"
-              value={formData.Public}
-              onChange={handleInputChange}
-              className="form-control"
-              required
-            />
-          </div>
-        </div>
-        <div className="row mb-3">
-          <label htmlFor="Image" className="col-sm-2 col-form-label">Image URL</label>
-          <div className="col-sm-10">
-            <input
-              type="text"
-              name="Image"
-              id="Image"
-              value={formData.Image}
-              onChange={handleInputChange}
-              className="form-control"
-              required
-            />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-10 offset-sm-2">
-            <button type="submit" className="btn btn-primary">Add Food</button>
-          </div>
-        </div>
-      </form>
-    </div>
-    <Footer/>
+      </div>
+      <Footer />
     </div>
   );
 };

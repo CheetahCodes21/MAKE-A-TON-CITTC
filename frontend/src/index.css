@@ -1,7 +1,6 @@
 #carousel{
     max-height: 400px;
     overflow: hidden;
-    object-fit: contain !important;
    }
 
 
@@ -71,27 +70,27 @@
     opacity: 1;
   }
   
-
+/* 
   .glassmorphism {
-    background: rgba(10, 36, 152, 0.1); /* Adjust the alpha (last value) to control transparency */
-    backdrop-filter: blur(8px); /* Adjust blur amount as needed */
-    border: 1px solid rgba(255, 255, 255, 0.252); /* Optional border for contrast */
-    border-radius: 10px; /* Optional border radius for rounded corners */
+    background: rgba(10, 36, 152, 0.1); 
+    backdrop-filter: blur(8px); 
+    border: 1px solid rgba(255, 255, 255, 0.252);
+    border-radius: 10px;
     padding: 20px;
     margin-top: 20px;
     transition: background 0.3s ease-in-out;
   }
   
   .glassmorphism1 {
-    background: rgba(4, 7, 198, 0.1); /* Adjust the alpha (last value) to control transparency */
-    backdrop-filter: blur(8px); /* Adjust blur amount as needed */
-    border: 1px solid rgba(255, 255, 255, 0.252); /* Optional border for contrast */
-    border-radius: 10px; /* Optional border radius for rounded corners */
+    background: rgba(4, 7, 198, 0.1); 
+    backdrop-filter: blur(8px); 
+    border: 1px solid rgba(255, 255, 255, 0.252); 
+    border-radius: 10px;
     padding: 20px;
     margin-top: 20px;
     transition: background 0.3s ease-in-out;
   }
-  
+   */
 
   /* Ingredients.css */
 
@@ -120,4 +119,14 @@
   }
   
   /* Add additional styles as needed */
-  
+  @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Alumni+Sans+Inline+One:ital@1&family=Anton&family=Bellefair&family=Caprasimo&family=Catamaran:wght@700&family=Fraunces:opsz,wght@9..144,700&family=Gabarito:wght@400;500&family=Heebo:wght@600&family=Kanit:wght@500&family=Montserrat:wght@300;400;500;900&family=Nunito:ital,wght@0,800;1,1000&family=Open+Sans:wght@300&family=Oswald:wght@600&family=Outfit&family=Phudu:wght@500&family=Poppins:ital,wght@1,300;1,500;1,600;1,900&family=Roboto+Slab:wght@600&family=Roboto:ital,wght@1,700;1,900&family=Young+Serif&display=swap');
+
+
+
+h1,label{
+    font-family: 'Caprasimo', sans-serif;
+}
+
+p{
+    font-family: 'Fraunces', sans-serif;
+}

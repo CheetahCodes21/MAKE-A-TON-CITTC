@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import Navbar from '../components/navbar';
+import Footer from '../components/Footer';
 
 function RecipesPage() {
   const { ingredient } = useParams();
@@ -34,6 +36,8 @@ function RecipesPage() {
   }, [ingredients]);
 
   return (
+    <>
+    <Navbar/>
     <div className="container mt-5">
       <h1 className="text-center">Recipes with {ingredients.join(', ')}</h1>
       <div className="row">
@@ -56,6 +60,8 @@ function RecipesPage() {
         ))}
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 

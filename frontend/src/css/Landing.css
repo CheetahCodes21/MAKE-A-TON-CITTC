@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Alumni+Sans+Inline+One:ital@1&family=Anton&family=Bellefair&family=Caprasimo&family=Catamaran:wght@700&family=Fraunces:opsz,wght@9..144,700&family=Gabarito:wght@400;500&family=Heebo:wght@600&family=Kanit:wght@500&family=Montserrat:wght@300;400;500;900&family=Nunito:ital,wght@0,800;1,1000&family=Open+Sans:wght@300&family=Oswald:wght@600&family=Outfit&family=Phudu:wght@500&family=Poppins:ital,wght@1,300;1,500;1,600;1,900&family=Roboto+Slab:wght@600&family=Roboto:ital,wght@1,700;1,900&family=Young+Serif&display=swap');
+
+
+
+h1,h2{
+    font-family: 'Caprasimo', sans-serif;
+}
+
+p{
+    font-family: 'Fraunces', sans-serif;
+}
+
+.gradient-bg {
+    background: linear-gradient(to right,#110b0b 0%, #520707 100%);
+    background-size: 200% 100%;
+    transition: background-position 0.3s;
+  }
+  
+  .gradient-bg:hover {
+    background-position: -100% 0;
+  }
+  
+  

@@ -3,6 +3,8 @@ import Navbar from '../components/navbar'
 import Carousel from '../components/Carousel'
 import Footer from '../components/Footer'
 import WoodBg from '../Assets/cards/woodbg.jpg'
+import Img from '../Assets/cards/brown.jpg'
+import Img2 from '../Assets/background/orangebg.jpg'
 import Cards from '../components/card'
 import VideoSlider from '../components/VideoSlider'
 
@@ -67,7 +69,9 @@ const Home = () => {
     <Carousel/>
     </div>
     <div style={{ backgroundImage:`url(${WoodBg})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
-      <h1 className='text-white text-center' style={{ backgroundImage:`url(${WoodBg})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>Top Reciepes of the Week</h1>
+      {/* <h1 className='text-white text-center' style={{ backgroundImage:`url(${WoodBg})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>Top Reciepes of the Week</h1> */}
+      <h1 className='text-white bg-black p-3 text-center'>Top Foods of the Week</h1>
+
       <Cards/>
     </div>
     {/* <div className='bg-black'>
@@ -89,12 +93,12 @@ const Home = () => {
 ))}
       </div>
     </div> */}
-    <div className='bg-black'>
-  <h1 className='text-white text-center'>Top Restaurants of the Week</h1>
+   <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
+  <h1 className='text-white text-center bg-black p-3'>Top Restaurants of the Week</h1>
   <div className="container">
     <div className="row">
       {restaurants.map(restaurant => (
-        <div className="col-lg-3  col-md-4 col-sm-6 mb-4" key={restaurant.id}>
+        <div className="col-lg-3  col-md-4 col-sm-6 mb-4 mt-3" key={restaurant.id}>
           <div className="restaurant">
             <img className="img-fluid" style={{ maxHeight: '300px', maxWidth: '100%' }} src={restaurant.image} alt={`Photo of ${restaurant.name}`} />
             <div className="restaurant-info overlay">
@@ -110,8 +114,8 @@ const Home = () => {
     </div>
   </div>
 </div>
-   <div className='bg-black'>
-   <h1 className='text-white text-center'>Recommendation</h1>
+  <div style={{ backgroundImage:`url(${Img2})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
+   <h1 className='text-white bg-black p-3 text-center'>Recommendation</h1>
    <VideoSlider/>
    </div>
 

@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import '../css/Ingredients.css'; // Ensure your CSS styles are set properly for the image size
-// import Img from '../Assets/cards/bg.jpg'
+import '../css/Ingredients.css';
 import Navbar from '../components/navbar';
 import Footer from '../components/Footer';
+
+import backgroundImage from '../Assets/cards/bg.jpg'; 
 
 function IngredientPage() {
   const [ingredients, setIngredients] = useState([]);
@@ -13,7 +14,7 @@ function IngredientPage() {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
-  const limit = 9; // Limit for initial load and reset
+  const limit = 12;
 
   useEffect(() => {
     const fetchIngredients = async () => {
@@ -23,7 +24,7 @@ function IngredientPage() {
         );
         if (response.data.meals) {
           setIngredients(response.data.meals);
-          setDisplayedIngredients(response.data.meals.slice(0, limit)); // Load only the first 10 ingredients initially
+          setDisplayedIngredients(response.data.meals.slice(0, limit));
         }
       } catch (error) {
         console.error('Error fetching ingredients:', error);
@@ -34,7 +35,6 @@ function IngredientPage() {
   }, []);
 
   useEffect(() => {
-    // Adjust the number of ingredients displayed based on the search query
     const filtered = searchQuery
       ? ingredients.filter((ingredient) =>
           ingredient.strIngredient.toLowerCase().includes(searchQuery.toLowerCase())
@@ -51,51 +51,65 @@ function IngredientPage() {
   };
 
   return (
-    <div style={{ backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
+    <>
+    <div
+      style={{
+        background: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        maxWidth: '100%',
+        minHeight: '100vh', 
+        // display: 'flex',
+        // flexDirection: 'column',
+        // alignItems: 'center',
+      }}
+    >
       <Navbar />
-      <div className=''>
-      <div className="container mt-5">
-        <h1 className="text-center text-white">Ingredients List</h1>
-        <div className="mb-3">
+      <div className='container mt-5'>
+        <h1 className='text-center text-dark bg-danger'>Ingredients List</h1>
+        <div className='mb-3'>
           <input
-            type="text"
-            placeholder="Search for ingredients"
+            type='text'
+            placeholder='Search for ingredients'
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="form-control"
+            className='form-control'
           />
         </div>
-        <div className="mt-4">
+        <div className='mt-4'>
           <button
-            className="btn btn-primary"
+            className='btn btn-primary'
             onClick={() => navigate(`/recipes/${selectedIngredients.join(',')}`)}
           >
             Find Recipes
           </button>
         </div>
-        <div className="row mt-3">
+        <div className='row mt-3'>
           {displayedIngredients.map((ingredient) => (
-            <div key={ingredient.strIngredient} className="col-md-4 mb-4">
+            <div key={ingredient.strIngredient} className='col-md-3 mb-4'>
               <div
-                className={`card ingredient-card ${selectedIngredients.includes(ingredient.strIngredient) ? 'selected' : ''}`}
+                className={`card ingredient-card ${
+                  selectedIngredients.includes(ingredient.strIngredient) ? 'selected' : ''
+                }`}
                 onClick={() => handleIngredientSelect(ingredient.strIngredient)}
               >
                 <img
-                  src={`https://www.themealdb.com/images/ingredients/${ingredient.strIngredient}-Small.png`} // Using the "Small" image variant
-                  className="card-img-top ingredient-image" // Add your class for styling the image
-                  alt={ingredient.strIngredient}
+                  src={`https://www.themealdb.com/images/ingredients/${ingredient.strIngredient}-Small.png`}
+                  className='card-img-top ingredient-image'
+                  alt={ingredient.strIngredient} style={{maxHeight:'250px'}}
                 />
-                <div className="card-body">
-                  <h5 className="card-title">{ingredient.strIngredient}</h5>
+                <div className='card-body'>
+                  <h5 className='card-title'>{ingredient.strIngredient}</h5>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-      <Footer />
-      </div>
     </div>
+      <Footer />
+    </>
   );
 }
 

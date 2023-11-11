@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Navbar from '../components/navbar';
+import Footer from '../components/Footer';
 
 function RecipeDetails() {
-  const { idMeal, searchQuery } = useParams();
+  const { idMeal } = useParams();
   const [recipeDetails, setRecipeDetails] = useState(null);
   const [ingredientImages, setIngredientImages] = useState({});
 
@@ -31,7 +33,7 @@ function RecipeDetails() {
     };
 
     fetchRecipeDetails();
-  }, [idMeal]);
+  }, [idMeal, recipeDetails]);
 
   const fetchIngredientImages = async (ingredients) => {
     const imagePromises = ingredients.map(async (ingredient) => {
@@ -61,6 +63,8 @@ function RecipeDetails() {
   }
 
   return (
+    <>
+    <Navbar/>
     <div className="container mt-5">
       <h1 className="text-center">{recipeDetails.strMeal}</h1>
       <div className="row justify-content-center mt-4">
@@ -68,14 +72,20 @@ function RecipeDetails() {
           <div className="card">
             <img
               src={recipeDetails.strMealThumb}
-              className="card-img-top"
+              className="card-img-top recipe-image"
               alt={recipeDetails.strMeal}
             />
             <div className="card-body">
               <h2 className="card-title">{recipeDetails.strMeal}</h2>
-              <p className="card-text">Category: {recipeDetails.strCategory}</p>
-              <p className="card-text">Area: {recipeDetails.strArea}</p>
-              <p className="card-text">Instructions: {recipeDetails.strInstructions}</p>
+              <p className="card-text">
+                <strong>Category:</strong> {recipeDetails.strCategory}
+              </p>
+              <p className="card-text">
+                <strong>Area:</strong> {recipeDetails.strArea}
+              </p>
+              <p className="card-text">
+                <strong>Instructions:</strong> {recipeDetails.strInstructions}
+              </p>
               <a
                 href={recipeDetails.strYoutube}
                 className="btn btn-primary"
@@ -92,11 +102,11 @@ function RecipeDetails() {
                   if (ingredient) {
                     return (
                       <div key={index} className="col-md-4 mb-3">
-                        <div className="card">
+                        <div className="card ingredient-card">
                           {ingredientImages[ingredient] && (
                             <img
                               src={ingredientImages[ingredient]}
-                              className="card-img-top"
+                              className="card-img-top ingredient-image"
                               alt={ingredient}
                             />
                           )}
@@ -116,6 +126,8 @@ function RecipeDetails() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 

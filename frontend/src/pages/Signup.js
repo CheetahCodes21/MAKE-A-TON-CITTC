@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import {Link,useNavigate} from 'react-router-dom'
 import Img from '../Assets/cards/signupbg.jpg'
+import { RiEyeFill, RiEyeOffFill } from 'react-icons/ri'; 
+import '../css/Login.css'
 
 const SignIn = () => {
 
   const [credentials,setcredentials]=useState({name:"",userId:"",password:"",email:""})
+  const [showPassword, setShowPassword] = useState(false);
   let navigate=useNavigate()
-  const handleGoogleSignIn = () => {
-    // Handle Google sign-in logic here
-  };
-
-  const handleFacebookSignIn = () => {
-    // Handle Facebook sign-in logic here
-  };
 
   const handleSubmit=async(e)=>{
     e.preventDefault()
@@ -42,25 +38,46 @@ const SignIn = () => {
     <div className="container vh-100">
       <div className="row justify-content-center">
         <div className="col-md-6 mt-5">
-          <div className=" glassmorphism1">
-            <div className="card-header bg-primary text-white">
-              <h3 className="text-center p-1">Sign In</h3>
+          <div className="card bg-transparent mt-5 ">
+            <div className="card-header mt-5 text-white">
+              <h1 className="text-center p-1">Sign In...</h1>
             </div>
-            <div className="card-body">
+            <div className="card-body input-container">
               <form onSubmit={handleSubmit}>
-              <div className="form-group">
+              <div className="form-group mb-4">
                   <label htmlFor="text" className="text-white">Name:</label>
-                  <input type="text" placeholder="Enter the Name" className="form-control" name="name" value={credentials.name} onChange={onChange} />
+                  <input type="text" placeholder="Enter the Name" className="form-control white-text text-white" name="name" value={credentials.name} onChange={onChange}
+                  style={{
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    borderBottom: '2px solid #fff' ,
+                    
+                  }}
+                  />
                 </div>
-              <div className="form-group">
+              <div className="form-group mb-4">
                   <label htmlFor="text" className="text-white">AdminId:</label>
-                  <input type="text" placeholder="Enter Admin Id" className="form-control" name="userId" value={credentials.userId} onChange={onChange} />
+                  <input type="text" placeholder="Enter Admin Id" className="form-control white-text text-white" name="userId" value={credentials.userId} onChange={onChange}
+                  style={{
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    borderBottom: '2px solid #fff' ,
+                    
+                  }}
+                  />
                 </div>
-                <div className="form-group">
+                <div className="form-group mb-4">
                   <label htmlFor="email" className="text-white">Email:</label>
-                  <input type="email" placeholder="Enter email" className="form-control" id="email" name="email" value={credentials.email} onChange={onChange}/>
+                  <input type="email" placeholder="Enter email" className="form-control white-text text-white" id="email" name="email" value={credentials.email} onChange={onChange}
+                   style={{
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    borderBottom: '2px solid #fff' ,
+                    
+                  }}
+                  />
                 </div>
-                <div className="form-group">
+                {/* <div className="form-group">
                   <label htmlFor="password"  className="text-white">Password:</label>
                   <input
                     type="password"
@@ -71,7 +88,44 @@ const SignIn = () => {
                     value={credentials.password}
                     onChange={onChange}
                   />
-                </div>
+                </div> */}
+                 <div className="form-group mb-2">
+      <label htmlFor="password" className="text-white ">
+        Password:
+      </label>
+      <div style={{ position: 'relative' }}>
+        <input
+          type={showPassword ? 'text' : 'password'}
+          placeholder="Enter password"
+          className="form-control text-white white-text"
+          id="password"
+          name="password"
+          value={credentials.password}
+          onChange={onChange}
+          style={{
+            backgroundColor: 'transparent',
+            border: 'none',
+            borderBottom: '2px solid #fff',
+          }}
+        />
+        <button
+          type="button"
+          onClick={() => setShowPassword(!showPassword)}
+          style={{
+            position: 'absolute',
+            right: '10px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            background: 'none',
+            border: 'none',
+            color: '#fff',
+            cursor: 'pointer',
+          }}
+        >
+         {showPassword ? <RiEyeOffFill /> : <RiEyeFill />}
+        </button>
+      </div>
+    </div>
                 <button type="submit" className=" m-3 btn btn-primary btn-block">
                   Sign In
                 </button>

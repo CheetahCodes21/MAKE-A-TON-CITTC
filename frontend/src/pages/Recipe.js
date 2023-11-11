@@ -1,16 +1,15 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Img from '../Assets/cards/reciepefinder.jpg'
+import Img from '../Assets/cards/reciepefinder.jpg';
 import Navbar from '../components/navbar';
 import Footer from '../components/Footer';
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
-
+import {  Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 function App() {
   const [recipeData, setRecipeData] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [ingredientImages, setIngredientImages] = useState({});
-  // const [showMore, setShowMore] = useState(false);
+  const [loading, setLoading] = useState(true); // Set loading to true initially
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => setModal(!modal);
@@ -37,6 +36,7 @@ function App() {
 
   const handleSearch = async () => {
     try {
+      setLoading(true);
       const response = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`
       );
@@ -54,16 +54,33 @@ function App() {
       }
     } catch (error) {
       console.error('Error fetching recipe:', error);
+      setRecipeData(null); 
+    } finally {
+      setLoading(false);
     }
   };
-  // const handleViewMore = () => {
-  //   setShowMore(!showMore); 
-  // };
+
+  useEffect(() => {
+    const simulatePageLoad = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setLoading(false);
+    };
+
+    simulatePageLoad();
+  }, []);
+
 
 
   return (
     <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
     <Navbar/>
+    {loading && (
+        <div className="d-flex justify-content-center mt-4">
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      )}
     <div className="container mt-5" >
       <h1 className="text-center text-white">Recipe Finder</h1>
       <div className="row justify-content-center mt-3">

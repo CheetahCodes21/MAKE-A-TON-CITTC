@@ -115,7 +115,7 @@ const [sliderIndex, setSliderIndex] = useState(0);
       <Slider {...sliderSettings}>
         {videos.map((video) => (
           <div key={video.id} onClick={() => handleVideoClick(video)}>
-            <Card className='m-4 bg-white border-0 text-center' style={{cursor:'pointer'}}>
+            <Card className='m-4 bg-dark text-white border-0 text-center' style={{cursor:'pointer'}}>
               <CardImg top src={video.thumbnail} alt={video.title} className='card-img' />
               <CardTitle tag='h5'>{video.title}</CardTitle>
             </Card>

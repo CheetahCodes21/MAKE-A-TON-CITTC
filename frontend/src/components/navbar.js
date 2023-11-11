@@ -41,8 +41,8 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-      <a className="navbar-brand text-white " href="/">
-      <img src={logo} alt="logo" className="img-fluid my-0" style={{ height: "35px",width:"150px" }} />
+      <a className="navbar-brand text-white " href="/home">
+      <img src={logo} alt="logo" className="img-fluid my-0" style={{ height: "40px",width:"150px" }} />
       </a>
       <button
         className="navbar-toggler"
@@ -75,15 +75,15 @@ const Navbar = () => {
         </Link>
         <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`} aria-labelledby="navbarDropdown">
           <Link className="dropdown-item" to="/recipe">
-             Chef's Choice
+             Reciepe Finder
           </Link>
           <Link className="dropdown-item" to="/ingred">
              Home Kitchen
           </Link>
-          <div className="dropdown-divider"></div>
-          <Link className="dropdown-item" to="/specials">
-             Trending
-          </Link>
+          {/* <div className="dropdown-divider"></div> */}
+          {/* <Link className="dropdown-item" to="/specials"> */}
+             {/* Trending */}
+          {/* </Link> */}
         </div>
       </div>
     </li>
@@ -118,7 +118,7 @@ const Navbar = () => {
           </li>
           
                <li className="nav-item">
-            <a className="nav-link text-white" href="/logout" onClick={handleLogout}>
+            <a className="nav-link text-white" href="/login" onClick={handleLogout}>
               <FontAwesomeIcon icon={faSignOutAlt} /> Logout
             </a>
           </li>
