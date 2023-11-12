@@ -15,7 +15,7 @@ const Books = () => {
 
     const fetchAddedfoods = async () => {
         try {
-            const response = await Axios.get("http://localhost:3000/api2/food/dis");
+            const response = await Axios.get("https://foodie-lyart-omega.vercel.app/api2/food/dis");
             if (response.status === 200) {
                 const data = response.data.data;
 
@@ -49,7 +49,7 @@ const Books = () => {
 
     const handleDelete = async (food) => {
         try {
-            const response = await Axios.post("http://localhost:3000/api2/food/del", { Name: food.Name });
+            const response = await Axios.post("https://foodie-lyart-omega.vercel.app/api2/food/del", { Name: food.Name });
 
             if (response.status === 200) {
                 fetchAddedfoods();
@@ -61,7 +61,7 @@ const Books = () => {
 
     const handleUpdate = async () => {
         try {
-            const response = await Axios.put("http://localhost:3000/api2/food/update", updateData);
+            const response = await Axios.put("https://foodie-lyart-omega.vercel.app/api2/food/update", updateData);
 
             if (response.status === 200) {
                 fetchAddedfoods();
