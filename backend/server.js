@@ -13,7 +13,13 @@ const PORT = 3000;
 //     methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Add the HTTP methods you need
 //   })
 // );
-app.use(cors())
+app.use(cors(
+  {
+    origin:['https://make-a-ton-cittc-bo5q.vercel.app'],
+    methods:["POST","GET","DELETE"],
+    credentials:true
+  }
+))
 // Parse JSON request bodies
 app.use(express.json());
 

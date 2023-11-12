@@ -56,7 +56,7 @@ const addFood = async (req, res) => {
 
 const readFood = async (req, res) => {
     try {
-        const foodData = await FoodModel.find(); // Use FoodModel to retrieve food items
+        const foodData = await FoodModel.find(); 
         return res.status(200).send({
             status: true,
             data: foodData,

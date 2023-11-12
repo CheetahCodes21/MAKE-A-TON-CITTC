@@ -35,7 +35,7 @@ const AddFood = () => {
     };
 
     try {
-      const response = await Axios.post('http://foodie-lyart-omega.vercel.app/api2/food/add', dataToSubmit);
+      const response = await Axios.post('https://foodie-lyart-omega.vercel.app/api2/food/add', dataToSubmit);
       alert('Food added successfully!')
       navigate('/admin')
 

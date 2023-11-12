@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const FoodController = require("../Controller/foodcontroller"); // Import the FoodController
+const FoodController = require("../Controller/foodcontroller"); 
 
 // Food API
 router.post("/add", FoodController.addFood);
