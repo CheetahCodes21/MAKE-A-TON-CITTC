@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Navbar from '../components/navbar'
 import Carousel from '../components/Carousel'
 import Footer from '../components/Footer'
@@ -62,10 +62,30 @@ const restaurants = [
 
 
 const Home = () => {
+   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a delay for data fetching
+    const fetchData = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
  return(
   <div>
-    <Navbar/>
-    <Carousel/>
+      {loading && (
+          <div className="d-flex justify-content-center mt-4">
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        )}
+        {!loading && (
+          <div>
+        <Navbar/>
+       <Carousel/>
   
     <div style={{ backgroundImage:`url(${WoodBg})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
       {/* <h1 className='text-white text-center' style={{ backgroundImage:`url(${WoodBg})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>Top Reciepes of the Week</h1> */}
@@ -119,6 +139,8 @@ const Home = () => {
    </div>
 
     <Footer/>
+    </div>
+      )}
   </div>
  )
 }
