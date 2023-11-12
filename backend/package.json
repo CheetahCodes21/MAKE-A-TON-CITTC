@@ -1,7 +1,4 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "main": "server.js",
   "dependencies": {
     "bcryptjs": "2.4.3",
     "cors": "2.8.5",
@@ -26,7 +23,7 @@
     "buildCommand": "npm run build",
     "startCommand": "npm run start",
     "environment": {
-      "PORT": 3000
+      "NODE_VERSION": "18.x"
     }
   }
 }
