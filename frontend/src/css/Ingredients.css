@@ -1,6 +1,10 @@
-/* IngredientPage.css */
-.selected {
-    border: 2px solid #ffc107; /* Yellow border (you can change it to your preferred color) */
-    background-color: #ffffcc; /* Yellow background color (you can change it to your preferred color) */
-  }
-  
+.ingredient-card.selected {
+  border: 2px solid #ffc107;
+  background-color: #fcfc00;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.ingredient-card.selected:hover {
+  border-color: #e0a800;
+  background-color: #f5f500;
+}

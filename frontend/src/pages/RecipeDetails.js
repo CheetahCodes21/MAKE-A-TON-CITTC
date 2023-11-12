@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../components/navbar';
 import Footer from '../components/Footer';
+import Img from '../Assets/background/Food.jpg'
 
 function RecipeDetails() {
   const { idMeal } = useParams();
@@ -63,10 +64,10 @@ function RecipeDetails() {
   }
 
   return (
-    <>
+    <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
     <Navbar/>
     <div className="container mt-5">
-      <h1 className="text-center">{recipeDetails.strMeal}</h1>
+      <h1 className="text-center text-white bg-black">{recipeDetails.strMeal}</h1>
       <div className="row justify-content-center mt-4">
         <div className="col-md-8">
           <div className="card">
@@ -127,7 +128,7 @@ function RecipeDetails() {
       </div>
     </div>
     <Footer/>
-    </>
+    </div>
   );
 }
 

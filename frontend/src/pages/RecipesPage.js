@@ -3,11 +3,13 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../components/navbar';
 import Footer from '../components/Footer';
+import Img from '../Assets/background/res.jpg'
 
 function RecipesPage() {
   const { ingredient } = useParams();
   const ingredients = ingredient.split(','); // Split ingredients into an array
   const [ingredientRecipes, setIngredientRecipes] = useState([]);
+  const [showNoRecipesMessage, setShowNoRecipesMessage] = useState(false);
 
   useEffect(() => {
     const fetchRecipesByIngredient = async () => {
@@ -27,6 +29,7 @@ function RecipesPage() {
         }, recipes[0]);
 
         setIngredientRecipes(commonRecipes);
+        setShowNoRecipesMessage(commonRecipes.length === 0);
       } catch (error) {
         console.error('Error fetching recipes by ingredient:', error);
       }
@@ -36,32 +39,33 @@ function RecipesPage() {
   }, [ingredients]);
 
   return (
-    <>
-    <Navbar/>
-    <div className="container mt-5">
-      <h1 className="text-center">Recipes with {ingredients.join(', ')}</h1>
-      <div className="row">
-        {ingredientRecipes.map((recipe) => (
-          <div key={recipe.idMeal} className="col-md-4 mb-4">
-            <div className="card">
-              <img
-                src={recipe.strMealThumb}
-                className="card-img-top"
-                alt={recipe.strMeal}
-              />
-              <div className="card-body">
-                <h5 className="card-title">{recipe.strMeal}</h5>
-                <Link to={`/recipes/${recipe.idMeal}/${ingredient}`} className="btn btn-primary">
-                  View Details
-                </Link>
+    <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
+      <Navbar />
+      <div className="container mt-5" style={{ minHeight: '100vh' }}>
+        <h1 className="text-center text-white">Recipes with {ingredients.join(', ')}</h1>
+        {showNoRecipesMessage && (
+          <p className="text-center text-black bg-white p-2 mt-2">
+            No recipes found for the selected ingredients.
+          </p>
+        )}
+        <div className="row">
+          {ingredientRecipes.map((recipe) => (
+            <div key={recipe.idMeal} className="col-md-4 mb-4">
+              <div className="card">
+                <img src={recipe.strMealThumb} className="card-img-top" alt={recipe.strMeal} />
+                <div className="card-body">
+                  <h5 className="card-title">{recipe.strMeal}</h5>
+                  <Link to={`/recipes/${recipe.idMeal}/${ingredient}`} className="btn btn-primary">
+                    View Details
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+      <Footer />
     </div>
-    <Footer/>
-    </>
   );
 }
 
