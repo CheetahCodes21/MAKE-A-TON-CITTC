@@ -19,7 +19,7 @@
   },
   "render": {
     "type": "web",
-    "rootDirectory": "src",
+    "rootDirectory": "server",
     "buildCommand": "npm run build",
     "startCommand": "npm run start",
     "environment": {
