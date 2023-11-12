@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const Landingpage = () => {
   return (
-    <div style={{ backgroundImage:`url(${bg})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
+    <div style={{ backgroundImage:`url(${bg})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%',overflowX:'hidden' }}>
     <div className="container">
       <header className="text-center">
         <Row>
