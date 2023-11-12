@@ -16,7 +16,7 @@ const PORT = 3000;
 app.use(cors(
   {
     origin:['https://make-a-ton-cittc-bo5q.vercel.app'],
-    methods:["POST","GET","DELETE"],
+    methods:["POST","GET","PUT","DELETE"],
     credentials:true
   }
 ))
