@@ -37,10 +37,15 @@ function App() {
   const handleSearch = async () => {
     try {
       setLoading(true);
+      if (!searchQuery) {
+        setRecipeData(null);
+        return;
+      }
+
       const response = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`
       );
-
+    
       if (response.data.meals) {
         setRecipeData(response.data.meals[0]);
 
@@ -51,6 +56,7 @@ function App() {
         fetchIngredientImages(ingredients);
       } else {
         setRecipeData(null);
+      
       }
     } catch (error) {
       console.error('Error fetching recipe:', error);
@@ -74,13 +80,13 @@ function App() {
   return (
     <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
     <Navbar/>
-    {loading && (
-        <div className="d-flex justify-content-center mt-4">
+    
+        {/* <div className="d-flex justify-content-center mt-4">
           <div className="spinner-border text-primary" role="status">
             <span className="visually-hidden">Loading...</span>
           </div>
-        </div>
-      )}
+        </div> */}
+      
     <div className="container mt-5" >
       <h1 className="text-center text-white">Recipe Finder</h1>
       <div className="row justify-content-center mt-3">
@@ -91,7 +97,15 @@ function App() {
               className="form-control"
               placeholder="Search for a recipe"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => {
+                const query = e.target.value
+                setSearchQuery(query);
+                if (query.trim() === '') {
+                  setRecipeData(null);
+                } else {
+                  handleSearch();
+                }
+              }}
             />
             <div className="input-group-append">
               <button className="btn btn-primary" onClick={handleSearch}>Search</button>

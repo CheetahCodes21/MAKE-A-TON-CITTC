@@ -1,37 +1,73 @@
-import React from 'react'
-import Img1 from '../Assets/carousel/samosa.jpg'
-import Img2 from '../Assets/carousel/hd9.webp'
-import Img3 from '../Assets/carousel/396589.webp'
-function carousel() {
+import React from 'react';
+import Img1 from '../Assets/carousel/samosa.jpg';
+import Img2 from '../Assets/carousel/hd9.webp';
+import Img3 from '../Assets/carousel/396589.webp';
+
+function Carousel() {
   return (
-    <div >
-      <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel" >
+    <div>
+      <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner" id="carousel">
-          <div className="carousel-caption" >
+          <div className="carousel-caption">
             <form className="d-flex">
-              <input className="form-control mr-sm-2 me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success my-2 my-sm-0 text-white bg-success" type="submit">Search</button>
+              <input
+                className="form-control mr-sm-2 me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                className="btn btn-outline-success my-2 my-sm-0 text-white bg-success"
+                type="submit"
+              >
+                Search
+              </button>
             </form>
           </div>
           <div className="carousel-item active">
-            <img className="d-block w-100" src={Img1} alt="First slide"  style={{objectFit:'cover'}} />
+            <img
+              className="d-block w-100"
+              src={Img1}
+              alt="First slide"
+              style={{ objectFit: 'cover', maxHeight: '500px' }} // Adjust the maxHeight
+            />
           </div>
           <div className="carousel-item">
-            <img className="d-block w-100" src={Img2} alt="Second slide" style={{objectFit:'cover'}} />
+            <img
+              className="d-block w-100"
+              src={Img2}
+              alt="Second slide"
+              style={{ objectFit: 'cover', maxHeight: '500px' }} // Adjust the maxHeight
+            />
           </div>
           <div className="carousel-item">
-            <img className="d-block w-100" src={Img3} alt="Third slide" style={{objectFit:'cover'}}/>
+            <img
+              className="d-block w-100"
+              src={Img3}
+              alt="Third slide"
+              style={{ objectFit: 'cover', maxHeight: '500px' }} // Adjust the maxHeight
+            />
           </div>
         </div>
-        <a className="carousel-control-prev"  href="#carouselExampleControls" role="button" data-bs-slide="prev">
+        <a
+          className="carousel-control-prev"
+          href="#carouselExampleControls"
+          role="button"
+          data-bs-slide="prev"
+        >
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
         </a>
-        <a className="carousel-control-next"  href="#carouselExampleControls" role="button" data-bs-slide="next">
+        <a
+          className="carousel-control-next"
+          href="#carouselExampleControls"
+          role="button"
+          data-bs-slide="next"
+        >
           <span className="carousel-control-next-icon" aria-hidden="true"></span>
         </a>
       </div>
     </div>
-  )
+  );
 }
 
-export default carousel
+export default Carousel;
