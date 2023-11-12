@@ -12,7 +12,7 @@ const SignIn = () => {
 
   const handleSubmit=async(e)=>{
     e.preventDefault()
-    const response=await fetch("https://foodie-lyart-omega.vercel.app/api/createuser",{
+    const response=await fetch("http://foodie-lyart-omega.vercel.app/api/createuser",{
       method:'POST',
       headers:{
         'Content-Type':'application/json'
