@@ -23,7 +23,7 @@ app.get('/',(req,res)=>{
 
 // Mount your routes
 app.use("/api2/food", route);
-app.use("/api", require("./Router/Create_user.js"));
+app.use("/api", require("./Router/create_user.js"));
 
 // DB Connection
 mongoose
