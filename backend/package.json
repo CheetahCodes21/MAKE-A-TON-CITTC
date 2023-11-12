@@ -19,5 +19,14 @@
   "engines": {
     "node": "18.x",
     "npm": "7.x"
+  },
+  "render": {
+    "type": "web",
+    "rootDirectory": "src",
+    "buildCommand": "npm run build",
+    "startCommand": "npm run start",
+    "environment": {
+      "PORT": 3000
+    }
   }
 }
