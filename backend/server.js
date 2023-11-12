@@ -17,6 +17,10 @@ app.use(cors())
 // Parse JSON request bodies
 app.use(express.json());
 
+app.get('/',(req,res)=>{
+  res.send("hello")
+})
+
 // Mount your routes
 app.use("/api2/food", route);
 app.use("/api", require("./Router/Create_user.js"));
