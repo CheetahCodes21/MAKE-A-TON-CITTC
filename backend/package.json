@@ -16,14 +16,5 @@
   "engines": {
     "node": "18.x",
     "npm": "7.x"
-  },
-  "render": {
-    "type": "web",
-    "rootDirectory": "server",
-    "buildCommand": "npm run build",
-    "startCommand": "npm run start",
-    "environment": {
-      "NODE_VERSION": "18.x"
-    }
   }
 }
