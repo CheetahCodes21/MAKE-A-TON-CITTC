@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaInstagram, FaYoutube, FaEnvelope, FaPhone } from 'react-icons/fa';
-import { Link } from 'react-router-dom'; // Import if you're using react-router
+import { Link } from 'react-router-dom'; 
 
 const Footer = () => {
   return (
@@ -12,7 +12,6 @@ const Footer = () => {
               <h5 className="footer-heading">REACH US</h5>
               <p>We provide the best products at affordable prices</p>
               <div className="icons">
-                {/* Update these links to your social media URLs */}
                 <a href="https://instagram.com" className="text-white ms-2" target="_blank" rel="noopener noreferrer"><FaInstagram size={24} /></a>
                 <a href="https://youtube.com" className="text-white ms-2" target="_blank" rel="noopener noreferrer"><FaYoutube size={24} /></a>
                 <a href="mailto:info@example.com" className="text-white ms-2"><FaEnvelope size={24} /></a>

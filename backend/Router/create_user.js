@@ -8,7 +8,7 @@ const jwtSecret = "HelloIamAwebDeveloper"
 
 router.post("/createuser",[body('email').isEmail(),
 body('name').isLength({ min: 3 }),
-body('password','incorrect Password').isLength({ min: 5 })
+body('password','incorrect Password').isLength({ min: 2 })
 ], async (req, res) => {
     const errors = validationResult(req); 
     if (!errors.isEmpty()) {

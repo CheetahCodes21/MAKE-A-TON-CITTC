@@ -11,7 +11,7 @@ p{
 }
 
 .gradient-bg {
-    background: linear-gradient(to right,#110b0b 0%, #520707 100%);
+    background: linear-gradient(to right,#110b0b 0%, #100752 100%);
     background-size: 200% 100%;
     transition: background-position 0.3s;
   }

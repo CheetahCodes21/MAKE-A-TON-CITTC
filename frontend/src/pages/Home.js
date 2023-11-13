@@ -57,7 +57,6 @@ const restaurants = [
     image: 'https://www.theworlds50best.com/filestore/jpg/W50BR23-1-50-List-Atomix-interior.jpg',
     Link:'https://www.theworlds50best.com/the-list/1-10/atomix.html'
   },
-  // Add more restaurant objects as needed
 ];
 
 
@@ -65,7 +64,6 @@ const Home = () => {
    const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a delay for data fetching
     const fetchData = async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setLoading(false);
@@ -93,25 +91,6 @@ const Home = () => {
 
       <Cards/>
     </div>
-    {/* <div className='bg-black'>
-      <h1 className='text-white text-center'>Top Restaurants of the Week</h1>
-      <div className="container">
-      {restaurants.map(restaurant => (
-  <article className="restaurant" key={restaurant.id}>
-    <img style={{maxHeight:'300px' , maxWidth:'300px'}} src={restaurant.image} alt={`Photo of ${restaurant.name}`} />
-
-    <div className="restaurant-info">
-      <h2 className="restaurant-name">{restaurant.name}</h2>
-      <p>{restaurant.description}</p>
-
-      <a href={`/restaurants/${restaurant.id}`}>
-        View Menu
-      </a>
-    </div>
-  </article>
-))}
-      </div>
-    </div> */}
    <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
   <h1 className='text-white text-center bg-black p-3'>Top Restaurants of the Week</h1>
   <div className="container">
