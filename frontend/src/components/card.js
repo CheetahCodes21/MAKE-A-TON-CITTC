@@ -31,8 +31,8 @@ const Cards = () => {
     setSelectedCard(foodItem);
     setIsModalOpen(true);
   };
-  const cardWidth = '310px'; 
-  const cardHeight = '450px'; 
+  // const cardWidth = '310px'; 
+  // const cardHeight = '450px'; 
 
   const sliderSettings = {
     ref: slider => (sliderRef.current = slider),
@@ -63,7 +63,7 @@ const Cards = () => {
         <div key={index} onClick={() => handleCardClick(foodItem)}>
           {/* <Card className='m-4 text-white ' style={{ backgroundImage:`url(${brown})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', width: cardWidth, height: cardHeight}}> */}
           <Card className='mt-4 text-white   border-black text-center ' style={{cursor:'pointer', borderRadius:'50%',  backgroundImage:`url(${brown})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%'}}>
-            <CardImg top width='100%' src={foodItem.img} alt={foodItem.Name} className='card-img' style={{borderRadius:'50%'}} />
+            <CardImg  width='100%' src={foodItem.img} alt={foodItem.Name} className='card-img' style={{borderRadius:'50%'}} />
             <CardBody>
               <CardTitle tag='h5' >{foodItem.Name}</CardTitle>
               {/* <CardText className='fs-7'>{foodItem.desc}</CardText>

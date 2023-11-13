@@ -4,7 +4,7 @@ import CustomNavbar from "../components/navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import Img from '../Assets/background/Food.jpg'
-import { Card, CardImg, CardTitle, Modal, ModalBody, ModalHeader, Button } from 'reactstrap';
+import { Card, CardImg, CardTitle,CardBody, Modal, ModalBody, ModalHeader, Button } from 'reactstrap';
 
 const Books = () => {
     const [addedFoods, setAddedFoods] = useState([]);
@@ -79,17 +79,17 @@ const Books = () => {
         <div style={{ backgroundImage:`url(${Img})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
             <CustomNavbar />
             <div className="container mt-5 mb-4">
-                <div className="border border-5 p-4 bg-warning-subtle">
+                <div className="border border-5 p-4 bg-dark">
                     <div className="mb-4 text-center border border-5 border-black">
-                        <h1>Foodie Article</h1>
+                        <h1 className="text-white">Foodie Article</h1>
                         <h6><Link to="/article">Add Recipe</Link></h6>
                     </div>
-                    <div className="border border-4 p-3 bg-primary-subtle text-center">
-                        <h2 className="mb-4">Find Food recipes</h2>
-                        <div className="input-group mb-3">
+                    <div className="border border-4 p-3 bg-black text-center">
+                        <h2 className="mb-4 text-white">Find Food recipes</h2>
+                        <div className="input-group  mb-3">
                             <input
                                 type="text"
-                                className="form-control"
+                                className="form-control "
                                 placeholder="Search..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -99,7 +99,7 @@ const Books = () => {
                             </button>
                         </div>
                     </div>
-                    <div className="border border-5 mt-3 p-5 bg-primary-subtle">
+                    <div className="border border-5 mt-3 p-5 bg-black">
                         <div className="row justify-content-center">
                             <div className="col-md-12">
                                 {showResults && (
@@ -112,7 +112,7 @@ const Books = () => {
                                 )}
                             </div>
                         </div>
-                        <div className="row">
+                        {/* <div className="row">
                             {addedFoods.map((food) => (
                                 <div key={food._id} className="col-md-3 mb-4">
                                     <Card>
@@ -123,7 +123,24 @@ const Books = () => {
                                     </Card>
                                 </div>
                             ))}
-                        </div>
+                        </div> */}
+                        <div className="row">
+  {addedFoods.map((food) => (
+    <div key={food._id} className="col-md-4 mb-4">
+      <Card className="h-100">
+        <CardImg src={food.Image} alt={`Cover of ${food.Name}`} className="card-img-top" style={{ height: "250px", objectFit: "cover" }} />
+        <CardBody>
+          <CardTitle className="h5 text-center mb-3">{food.Name}</CardTitle>
+          <div className="d-flex justify-content-center">
+            <Button className="btn btn-primary me-2" onClick={() => openModal(food)}>View Details</Button>
+            <Button className="btn btn-danger" onClick={() => handleDelete(food)}>Delete</Button>
+          </div>
+        </CardBody>
+      </Card>
+    </div>
+  ))}
+</div>
+
                     </div>
                 </div>
             </div>

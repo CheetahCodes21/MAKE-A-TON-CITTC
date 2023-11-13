@@ -87,12 +87,12 @@ const Home = () => {
   
     <div style={{ backgroundImage:`url(${WoodBg})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
       {/* <h1 className='text-white text-center' style={{ backgroundImage:`url(${WoodBg})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>Top Reciepes of the Week</h1> */}
-      <h1 className='text-white bg-black p-3 text-center'>Top Foods of the Week</h1>
+      <h1 className='text-white bg-dark p-3 text-center'>Top Foods of the Week</h1>
 
       <Cards/>
     </div>
-   <div style={{ backgroundImage:`url(${Img})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
-  <h1 className='text-white text-center bg-black p-3'>Top Restaurants of the Week</h1>
+   <div className='bg-black'>
+  <h1 className='text-white text-center bg-dark p-3'>Top Restaurants of the Week</h1>
   <div className="container">
     <div className="row">
       {restaurants.map(restaurant => (
@@ -112,8 +112,8 @@ const Home = () => {
     </div>
   </div>
 </div>
-  <div style={{ backgroundImage:`url(${Img2})`,backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
-   <h1 className='text-white bg-black p-3 text-center'>Recommendation</h1>
+  <div className='bg-black'>
+   <h1 className='text-white bg-dark p-3 text-center'>Recommendation</h1>
    <VideoSlider/>
    </div>
 

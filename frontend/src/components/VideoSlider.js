@@ -30,7 +30,13 @@ const videos = [
         thumbnail: 'https://img.youtube.com/vi/Eim2GpHNQDg/hqdefault.jpg', // Corrected thumbnail URL
         videoId: 'Eim2GpHNQDg', // Corrected video ID
       },
-    // ... Add more video objects
+     {
+      id:'video5',
+      title:'Burger',
+      thumbnail:'https://img.youtube.com/vi/rIUhs7nHbl4/hqdefault.jpg',
+      videoId:'rIUhs7nHbl4',
+
+     }
 ];
 
 const VideoCards = () => {
@@ -93,7 +99,7 @@ const [sliderIndex, setSliderIndex] = useState(0);
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <NextArrow />, // Set custom next arrow
     prevArrow: <PrevArrow />, // Set custom prev arrow
