@@ -174,7 +174,6 @@
 
 // export default Books;
 
-
 import React, { useState, useEffect, useRef } from "react";
 import Axios from "axios";
 import CustomNavbar from "../components/navbar";
@@ -182,11 +181,10 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import Img from '../Assets/background/Food.jpg'
 import { Card, CardImg, CardTitle, CardBody, Modal, ModalBody, ModalHeader, Button } from 'reactstrap';
-import { useReactToPrint } from 'react-to-print';
+// import { useReactToPrint } from 'react-to-print';
 import jsPDF from "jspdf";
 
-
-const RecipeCard = ({ food, openModal, handleDelete }) => (
+const RecipeCard = ({ food, openModal, handleDelete,handleSharePDF }) => (
   <div key={food._id} className="col-md-4 mb-4">
     <Card className="h-100">
       <CardImg src={food.Image} alt={`Cover of ${food.Name}`} className="card-img-top" style={{ height: "250px", objectFit: "cover" }} />
@@ -195,7 +193,7 @@ const RecipeCard = ({ food, openModal, handleDelete }) => (
         <div className="d-flex justify-content-center">
           <Button className="btn btn-primary me-2" onClick={() => openModal(food)}>View Details</Button>
           <Button className="btn btn-danger" onClick={() => handleDelete(food)}>Delete</Button>
-         
+          <Button className="btn btn-success" onClick={() => handleSharePDF(food)}>Share as PDF</Button>
         </div>
       </CardBody>
     </Card>
@@ -271,22 +269,13 @@ const Books = () => {
     }
   };
 
-//   const handlePrint = useReactToPrint({
-//     content: () => componentRef.current,
-//   });
+  const handleSharePDF = (food) => {
+    const pdf = new jsPDF();
+    const foodDetails = `${food.Name} Recipe\n\nIngredients: ${food.Author}\n\nRecipe: ${food.Public}`;
+    pdf.text(foodDetails, 10, 10);
+    pdf.save(`${food.Name}_Recipe.pdf`);
+  };
 
-
-const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-    documentTitle: `${selectedFood.Name}_Recipe.pdf`,
-    onBeforeGetContent: () => {
-      const pdf = new jsPDF();
-      const foodDetails = `${selectedFood.Name} Recipe\n\nIngredients: ${selectedFood.Author}\n\nRecipe: ${selectedFood.Public}`;
-      pdf.text(foodDetails, 10, 10);
-      return pdf;
-    },
-  });
-  
   return (
     <div style={{ backgroundImage: `url(${Img})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
       <CustomNavbar />
@@ -326,7 +315,7 @@ const handlePrint = useReactToPrint({
             </div>
             <div className="row" ref={componentRef}>
               {addedFoods.map((food) => (
-                <RecipeCard key={food._id} food={food} openModal={openModal} handleDelete={handleDelete} />
+                <RecipeCard key={food._id} food={food} openModal={openModal} handleDelete={handleDelete} handleSharePDF={handleSharePDF} />
               ))}
             </div>
           
@@ -351,7 +340,6 @@ const handlePrint = useReactToPrint({
                 />
               </div>
               <Button className="btn btn-primary" onClick={() => handleUpdate(selectedFood.Name)}>Update Ingredients</Button>
-              <Button className="btn btn-success" onClick={handlePrint}>Share as PDF</Button>
             </>
           )}
         </ModalBody>
