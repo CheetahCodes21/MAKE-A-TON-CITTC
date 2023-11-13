@@ -183,6 +183,8 @@ import { Link } from "react-router-dom";
 import Img from '../Assets/background/Food.jpg'
 import { Card, CardImg, CardTitle, CardBody, Modal, ModalBody, ModalHeader, Button } from 'reactstrap';
 import { useReactToPrint } from 'react-to-print';
+import jsPDF from "jspdf";
+
 
 const RecipeCard = ({ food, openModal, handleDelete }) => (
   <div key={food._id} className="col-md-4 mb-4">
@@ -269,10 +271,22 @@ const Books = () => {
     }
   };
 
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
+//   const handlePrint = useReactToPrint({
+//     content: () => componentRef.current,
+//   });
 
+
+const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: `${selectedFood.Name}_Recipe.pdf`,
+    onBeforeGetContent: () => {
+      const pdf = new jsPDF();
+      const foodDetails = `${selectedFood.Name} Recipe\n\nIngredients: ${selectedFood.Author}\n\nRecipe: ${selectedFood.Public}`;
+      pdf.text(foodDetails, 10, 10);
+      return pdf;
+    },
+  });
+  
   return (
     <div style={{ backgroundImage: `url(${Img})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', maxWidth: '100%' }}>
       <CustomNavbar />

@@ -14,6 +14,7 @@
     "browserify-zlib": "^0.2.0",
     "font-awesome": "^4.7.0",
     "https-browserify": "^1.0.0",
+    "jspdf": "^2.5.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
