@@ -5,25 +5,42 @@ import CustomNavbar from "../components/navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import Img from '../Assets/background/Food.jpg'
-import { Card, CardImg, CardTitle, CardBody, Modal, ModalBody, ModalHeader, Button } from 'reactstrap';
+import { Card, CardImg, CardTitle, CardBody, Modal, ModalBody, ModalHeader, Button,Col } from 'reactstrap';
 // import { useReactToPrint } from 'react-to-print';
 import jsPDF from "jspdf";
 
-const RecipeCard = ({ food, openModal, handleDelete,handleSharePDF }) => (
-  <div key={food._id} className="col-md-4 mb-4">
+// const RecipeCard = ({ food, openModal, handleDelete,handleSharePDF }) => (
+//   <div key={food._id} className="col-md-4 mb-4">
+//     <Card className="h-100">
+//       <CardImg src={food.Image} alt={`Cover of ${food.Name}`} className="card-img-top" style={{ height: "250px", objectFit: "cover" }} />
+//       <CardBody>
+//         <CardTitle className="h5 text-center mb-3">{food.Name}</CardTitle>
+//         <div className="d-flex justify-content-center">
+//           <Button className="btn btn-primary me-2" onClick={() => openModal(food)}>View Details</Button>
+//           <Button className="btn btn-danger me-2" onClick={() => handleDelete(food)}>Delete</Button>
+//           <Button className="btn btn-success me-2" onClick={() => handleSharePDF(food)}>Download</Button>
+//         </div>
+//       </CardBody>
+//     </Card>
+//   </div>
+// );
+
+const RecipeCard = ({ food, openModal, handleDelete, handleSharePDF }) => (
+  <Col key={food._id} md={4} className="mb-4"> {/* Adjust the number of columns for different screen sizes */}
     <Card className="h-100">
       <CardImg src={food.Image} alt={`Cover of ${food.Name}`} className="card-img-top" style={{ height: "250px", objectFit: "cover" }} />
       <CardBody>
         <CardTitle className="h5 text-center mb-3">{food.Name}</CardTitle>
-        <div className="d-flex justify-content-center">
-          <Button className="btn btn-primary me-2" onClick={() => openModal(food)}>View Details</Button>
-          <Button className="btn btn-danger me-2" onClick={() => handleDelete(food)}>Delete</Button>
-          <Button className="btn btn-success me-2" onClick={() => handleSharePDF(food)}>Download</Button>
+        <div className="row justify-content-center"> {/* Utilize Bootstrap's grid system */}
+          <Button className="btn btn-primary col-md-4 mb-2 me-md-2" onClick={() => openModal(food)}>View Details</Button>
+          <Button className="btn btn-danger col-md-4 mb-2 me-md-2" onClick={() => handleDelete(food)}>Delete</Button>
+          <Button className="btn btn-success col-md-4 mb-2 me-md-2" onClick={() => handleSharePDF(food)}>Download</Button>
         </div>
       </CardBody>
     </Card>
-  </div>
+  </Col>
 );
+
 
 const Books = () => {
   const [addedFoods, setAddedFoods] = useState([]);
